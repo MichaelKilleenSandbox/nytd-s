@@ -1,8 +1,8 @@
 /**
  * Filename: PersistentObject.java
- *
+ * <p>
  * Copyright 2009, ICF International Created: May 20, 2009 Author: 15178
- *
+ * <p>
  * COPYRIGHT STATUS: This work, authored by ICF International employees, was
  * funded in whole or in part under U.S. Government contract, and is, therefore,
  * subject to the following license: The Government is granted for itself and
@@ -13,8 +13,6 @@
  * owner.
  */
 package gov.hhs.acf.cb.nytds.persistence.entity;
-
-import gov.hhs.acf.cb.nytds.util.DateUtil;
 
 import java.io.Serializable;
 import java.util.Calendar;

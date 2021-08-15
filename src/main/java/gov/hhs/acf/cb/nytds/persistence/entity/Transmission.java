@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
 import java.util.Calendar;
 import java.util.HashSet;
@@ -18,60 +20,96 @@ import java.util.Set;
 public class Transmission extends BaseEntity {
     @Getter
     @Setter
+    @ManyToOne
     private TransmissionType transmissionType;
-    @Getter @Setter
+    @Getter
+    @Setter
+    @ManyToOne
     private ReportingPeriod reportingPeriod;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String name;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String fileGenerationDate;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String fileId;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String complianceStatus;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String processingStatus;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String submissionStatus;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Calendar submittedDate;
-    @Getter @Setter
+    @Getter
+    @Setter
+    @ManyToOne
     private SiteUser siteUser;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String fileName;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Integer fileSize;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Calendar fileReceivedDate;
-    @Getter @Setter
+    @Getter
+    @Setter
+    @ManyToOne
     private State state;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String dataFileReportPeriodValue;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String dataFileStateValue; // Transmission Category value in data file
-    @Getter @Setter
+    @Getter
+    @Setter
     private String dataFileTransmissionTypeValue;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String lateWarningMessage;
-    @Getter @Setter
+    @Getter
+    @Setter
     private BigDecimal potentialPenalty;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Long improperFormattedValCnt;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Long duplicateRecordsCnt;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Long formatErrCnt;
-    @Getter @Setter
+    @Getter
+    @Setter
     private Long recordsCnt;
-    @Getter @Setter
+    @Getter
+    @Setter
+    @OneToMany
     private Set<NonCompliance> nonCompliances = new HashSet<>(0);
-    @Getter @Setter
+    @Getter
+    @Setter
+    @OneToMany
     private Set<TransmissionNote> transmissionNotes = new HashSet<>(0);
-    @Getter @Setter
+    @Getter
+    @Setter
+    @OneToMany
     private Set<ElementNote> elementNotes = new HashSet<>(0);
-    @Getter @Setter
+    @Getter
+    @Setter
+    @OneToMany
     private Set<TransmissionRecord> transmissionRecords = new HashSet<>(0);
-    @Getter @Setter
+    @Getter
+    @Setter
+    @OneToMany
     private Set<DataAggregate> dataAggregates = new HashSet<>(0);
 
     public Transmission() {
@@ -106,9 +144,9 @@ public class Transmission extends BaseEntity {
     }
 
 
-
     /**
      * Informs caller of any transmission errors in the current transmission.
+     *
      * @return
      */
     public boolean hasNoErrorsInTransmission() {
@@ -121,6 +159,7 @@ public class Transmission extends BaseEntity {
 
     /**
      * Checks duplicate records have been counted.
+     *
      * @return
      */
     public boolean hasDuplicateRecords() {
@@ -131,6 +170,7 @@ public class Transmission extends BaseEntity {
 
     /**
      * Checks if any file format errors have been counted.
+     *
      * @return
      */
     public boolean hasFileFormatErrors() {

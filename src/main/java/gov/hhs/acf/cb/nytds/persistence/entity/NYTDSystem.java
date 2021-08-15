@@ -17,11 +17,9 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
 
 /**
  * @author 15178
- *
  */
 
 public class NYTDSystem implements Sender {

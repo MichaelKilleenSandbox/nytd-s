@@ -9,37 +9,53 @@ import java.text.DateFormat;
 
 @Entity
 public class ExportMetadata extends BaseEntity {
-    @Getter @Setter
+    @Getter
+    @Setter
     private String fileName;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String fileType;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String status;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String reportingPeriods;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String states;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String populations;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String demographics;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String characteristics;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String independentLivingServices;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String youthOutcomeSurveys;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String demographicNotes;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String characteristicNotes;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String independentLivingServiceNotes;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String youthOutcomeSurveyNotes;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String transmissionIds;
-    @Getter @Setter
+    @Getter
+    @Setter
     private String userName;
 
     public ExportMetadata() {

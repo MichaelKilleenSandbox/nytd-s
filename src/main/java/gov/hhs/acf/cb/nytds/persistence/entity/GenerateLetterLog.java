@@ -5,19 +5,40 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
 
-@Getter @Setter @ToString
+@ToString
 @Builder(toBuilder = true)
 public class GenerateLetterLog {
 
-  private Long generateLetterLogId;
-  private Transmission transmission;
-  private TransmissionType transmissionType;
-  private ReportingPeriod reportingPeriod;
-  private State state;
-  private SiteUser siteUser;
-  private String complianceStatus;
-  private LocalDateTime dateTimestamp;
+    @Getter
+    @Setter
+    private Long generateLetterLogId;
+    @Getter
+    @Setter
+    @ManyToOne
+    private Transmission transmission;
+    @Getter
+    @Setter
+    @ManyToOne
+    private TransmissionType transmissionType;
+    @Getter
+    @Setter
+    @ManyToOne
+    private ReportingPeriod reportingPeriod;
+    @Getter
+    @Setter
+    private State state;
+    @Getter
+    @Setter
+    @ManyToOne
+    private SiteUser siteUser;
+    @Getter
+    @Setter
+    private String complianceStatus;
+    @Getter
+    @Setter
+    private LocalDateTime dateTimestamp;
 
 }

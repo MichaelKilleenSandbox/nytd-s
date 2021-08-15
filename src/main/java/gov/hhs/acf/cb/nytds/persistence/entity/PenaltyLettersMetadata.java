@@ -1,12 +1,13 @@
 package gov.hhs.acf.cb.nytds.persistence.entity;
 
 import gov.hhs.acf.cb.nytds.util.DateUtil;
-import java.text.DateFormat;
 import lombok.Builder;
 
+import java.text.DateFormat;
+
 /**
-* A class hold meta data for generated penalty letters model
-*/
+ * A class hold meta data for generated penalty letters model
+ */
 
 @Builder(toBuilder = true)
 public class PenaltyLettersMetadata extends BaseEntity {
@@ -26,10 +27,10 @@ public class PenaltyLettersMetadata extends BaseEntity {
     public PenaltyLettersMetadata(Long penaltyLettersMetadataId) {
         this.id = penaltyLettersMetadataId;
     }
-    
+
     // constructor with all arguments
-    public PenaltyLettersMetadata(String fileName, String status, String reportingPeriods,  
-            String states, String userName, String transmissionIds) {
+    public PenaltyLettersMetadata(String fileName, String status, String reportingPeriods,
+                                  String states, String userName, String transmissionIds) {
         this.fileName = fileName;
         this.status = status;
         this.reportingPeriods = reportingPeriods;

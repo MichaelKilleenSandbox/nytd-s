@@ -15,26 +15,33 @@ import java.util.regex.Pattern;
 public abstract class BaseEntity {
     // regular expression pattern for named parameters in messages
     // parameter format in messages is ${parameterName}
-    private static Pattern paramPattern = Pattern.compile("(\\$\\{(\\w+)\\})");
+    private static final Pattern paramPattern = Pattern.compile("(\\$\\{(\\w+)\\})");
 
     @Id
-    @Getter @Setter
+    @Getter
+    @Setter
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
     @Version
-    @Column(name="version")
-    @Getter @Setter
+    @Column(name = "version")
+    @Getter
+    @Setter
     protected Integer version;
-    @Getter @Setter
+    @Getter
+    @Setter
     protected Calendar createdDate;
-    @Getter @Setter
+    @Getter
+    @Setter
     protected String createdBy;
-    @Getter @Setter
+    @Getter
+    @Setter
     protected Calendar updateDate;
-    @Getter @Setter
+    @Getter
+    @Setter
     protected String updateBy;
-    @Getter @Setter
+    @Getter
+    @Setter
     protected String description;
 
     public String formatText(String text, Map params) {

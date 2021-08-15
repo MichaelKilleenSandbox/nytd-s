@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import java.util.Calendar;
 import java.util.HashSet;
 import java.util.Set;
@@ -15,33 +16,34 @@ import java.util.Set;
  */
 @Entity
 public class ProblemDescription extends BaseEntity {
-	@Getter	@Setter
-	private Long problemDescriptionId;
-	@Getter @Setter
-	private String name;
-	@Getter @Setter
-	private Set<NytdError> errors = new HashSet<>(0);
+    @Getter
+    @Setter
+    private Long problemDescriptionId;
+    @Getter
+    @Setter
+    private String name;
+    @Getter
+    @Setter
+    @OneToMany
+    private Set<NytdError> errors = new HashSet<>(0);
 
-	public ProblemDescription()
-	{
-	}
+    public ProblemDescription() {
+    }
 
-	public ProblemDescription(Long problemDescriptionId)
-	{
-		this.problemDescriptionId = problemDescriptionId;
-	}
+    public ProblemDescription(Long problemDescriptionId) {
+        this.problemDescriptionId = problemDescriptionId;
+    }
 
-	public ProblemDescription(Long problemDescriptionId, String name, Calendar createdDate, String createdBy,
-			Calendar updateDate, String updateBy, String description, Set<NytdError> errors)
-	{
-		this.problemDescriptionId = problemDescriptionId;
-		this.name = name;
-		this.createdDate = createdDate;
-		this.createdBy = createdBy;
-		this.updateDate = updateDate;
-		this.updateBy = updateBy;
-		this.description = description;
-		this.errors = errors;
-	}
+    public ProblemDescription(Long problemDescriptionId, String name, Calendar createdDate, String createdBy,
+                              Calendar updateDate, String updateBy, String description, Set<NytdError> errors) {
+        this.problemDescriptionId = problemDescriptionId;
+        this.name = name;
+        this.createdDate = createdDate;
+        this.createdBy = createdBy;
+        this.updateDate = updateDate;
+        this.updateBy = updateBy;
+        this.description = description;
+        this.errors = errors;
+    }
 
 }
