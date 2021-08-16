@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.util.Calendar;
 
@@ -17,10 +18,12 @@ public class ElementPopulation extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
+    @JoinColumn(name = "populationId")
     private Population population;
     @Getter
     @Setter
     @ManyToOne
+    @JoinColumn(name = "elementId")
     private Element element;
 
     public ElementPopulation() {
