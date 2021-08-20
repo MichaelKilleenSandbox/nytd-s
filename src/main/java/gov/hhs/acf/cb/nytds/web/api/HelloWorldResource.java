@@ -1,7 +1,9 @@
 package gov.hhs.acf.cb.nytds.web.api;
 
-import gov.hhs.acf.cb.nytds.persistence.service.StateService;
-import gov.hhs.acf.cb.nytds.persistence.service.entity.State;
+import gov.hhs.acf.cb.nytds.persistence.component.state.StateBusinessObject;
+import gov.hhs.acf.cb.nytds.persistence.component.state.StateService;
+import gov.hhs.acf.cb.nytds.persistence.component.entity.State;
+import gov.hhs.acf.cb.nytds.persistence.component.state.StateView;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,11 +21,11 @@ public class HelloWorldResource {
 
 
     @GetMapping("/helloworld")
-    ResponseEntity<String> getHelloWorld() {
+    ResponseEntity<StateBusinessObject> getHelloWorld() {
         System.out.println("TEST");
-        Optional<State> stateOptional = stateService.findStateByAbbreviation("NY");
-        State state = stateOptional.get();
-        return ResponseEntity.ok(stateOptional.get().toString());
+        Optional<StateBusinessObject> stateOptional = stateService.findStateByAbbreviation("NY");
+        StateBusinessObject state = stateOptional.get();
+        return ResponseEntity.ok(state);
     }
 
 }
