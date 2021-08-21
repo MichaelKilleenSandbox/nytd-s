@@ -27,7 +27,7 @@ public class SiteUser extends BaseEntity implements Sender, Recipient {
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "stateId")
+    @JoinColumn(name = "STATEID")
     private State state;
     @Getter
     @Setter

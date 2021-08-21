@@ -40,6 +40,7 @@ public class Transmission extends BaseEntity {
     private String complianceStatus;
     @Getter
     @Setter
+    @Column(name = "PROCESSINGSTATUS")
     private String processingStatus;
     @Getter
     @Setter
@@ -50,6 +51,7 @@ public class Transmission extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
+    @JoinColumn(name = "siteUserId")
     private SiteUser siteUser;
     @Getter
     @Setter
@@ -63,15 +65,19 @@ public class Transmission extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
+    @JoinColumn(name = "stateId")
     private State state;
     @Getter
     @Setter
+    @Column(name = "DATAFILEREPORTDATEVALUE")
     private String dataFileReportPeriodValue;
     @Getter
     @Setter
+    @Column(name = "DATAFILESTATEVALUE")
     private String dataFileStateValue; // Transmission Category value in data file
     @Getter
     @Setter
+    @Column(name = "DATAFILETRANSMISSIONTYPEVALUE")
     private String dataFileTransmissionTypeValue;
     @Getter
     @Setter
@@ -81,15 +87,18 @@ public class Transmission extends BaseEntity {
     private BigDecimal potentialPenalty;
     @Getter
     @Setter
+    @Column(name = "IMPROPERFORMATTEDVALCNT")
     private Long improperFormattedValCnt;
     @Getter
     @Setter
+    @Column(name = "DUPLICATERECORDSCNT")
     private Long duplicateRecordsCnt;
     @Getter
     @Setter
     private Long formatErrCnt;
     @Getter
     @Setter
+    @Column(name = "RECORDCOUNT")
     private Long recordsCnt;
     @Getter
     @Setter
@@ -111,6 +120,71 @@ public class Transmission extends BaseEntity {
     @Setter
     @OneToMany(mappedBy = "transmission")
     private Set<DataAggregate> dataAggregates;
+
+    // Check these against the hbm files.
+
+    @Getter
+    @Setter
+    private Long xmlDataId;
+
+    @Getter
+    @Setter
+    @Column(name = "PROCESSEDSTATUS")
+    private String processedStatus;
+
+    @Getter
+    @Setter
+    @Column(name = "DATVALUECOMPLIANTCNT")
+    private Long datvaluecompliantcnt;
+
+    @Getter
+    @Setter
+    @Column(name = "DATVALUEDATQUALADVISCNT")
+    private Long datvaluedatqualadviscnt;
+
+    @Getter
+    @Setter
+    @Column(name = "TIMELYERRCNT")
+    private Long timelyerrcnt;
+
+    @Getter
+    @Setter
+    @Column(name = "RECORDLEVELERRCNT")
+    private Long recordlevelerrcnt;
+
+    @Getter
+    @Setter
+    @Column(name = "TRANSMISSIONLEVELERRCNT")
+    private Long transmissionlevelerrcnt;
+
+
+    @Getter
+    @Setter
+    @Column(name = "PROCESSINGEXCEPTION")
+    private String processingexception;
+
+    /////////////////////////////////////////////////
+    @Getter
+    @Setter
+    @Column(name = "RECORDLEVELDQACNT")
+    private Long recordleveldqacnt;
+
+    @Getter
+    @Setter
+    @Column(name = "ELEMENTLEVELDQACNT")
+    private Long elementleveldqacnt;
+
+    @Getter
+    @Setter
+    @Column(name = "RECORDSINERRORCNT")
+    private Long recordsinerrorcnt;
+
+
+
+
+
+
+
 
     public Transmission() {
     }
