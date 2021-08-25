@@ -15,7 +15,7 @@ import java.util.Calendar;
  *
  */
 
-public class TransmissionDeleteLog implements Serializable {
+ public class TransmissionDeleteLog implements Serializable {
     @Getter
     @Setter
     private Long transmissionId;

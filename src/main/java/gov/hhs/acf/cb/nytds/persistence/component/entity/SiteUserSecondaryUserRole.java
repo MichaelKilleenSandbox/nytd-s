@@ -12,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "SITEUSERSECONDARYROLE")
 @AttributeOverride(name = "id", column = @Column(name = "SITEUSERSECONDARYROLEID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_SITEUSERSECONDARYROLE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class SiteUserSecondaryUserRole extends BaseEntity {
     @Getter
     @Setter

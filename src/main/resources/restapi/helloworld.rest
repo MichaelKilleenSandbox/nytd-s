@@ -1,0 +1,13 @@
+GET http://localhost:8082/helloworld
+
+###
+
+POST http://localhost:8082/helloworld HTTP/1.1
+content-type: application/json
+
+{
+  "region": {},
+  "abbreviation": "NY",
+  "fipsCode": "36",
+  "stateName": "New York"
+}

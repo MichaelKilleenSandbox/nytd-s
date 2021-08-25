@@ -13,6 +13,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "ElementNoteId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ELEMENTNOTE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class ElementNote extends BaseEntity {
     @Getter
     @Setter

@@ -19,6 +19,7 @@ import java.util.logging.Logger;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "SiteUserId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_SITEUSER", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class SiteUser extends BaseEntity implements Sender, Recipient {
 
     public static final String SESSION_KEY = "siteUser";

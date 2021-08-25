@@ -16,7 +16,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "LOOKUPID"))
-public class Lookup extends BaseEntity {
+public class Lookup extends BaseEntityIdentity {
     @Getter
     @Setter
     private String category;

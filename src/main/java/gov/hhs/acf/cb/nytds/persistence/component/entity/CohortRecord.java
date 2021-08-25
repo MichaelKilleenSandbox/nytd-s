@@ -27,7 +27,7 @@ import javax.persistence.*;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "CohortRecordId"))
-public class CohortRecord extends BaseEntity {
+public class CohortRecord extends BaseEntityIdentity {
 
 //    @Getter
 //    @Setter

@@ -12,6 +12,7 @@ import javax.persistence.*;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "TransmissionNoteId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_TRANSMISSIONNOTE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class TransmissionNote extends BaseEntity {
     @Getter
     @Setter

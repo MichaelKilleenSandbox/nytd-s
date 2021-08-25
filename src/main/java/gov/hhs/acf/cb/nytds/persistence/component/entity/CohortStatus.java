@@ -30,7 +30,7 @@ import java.util.Collection;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "CohortStatusId"))
-public class CohortStatus extends BaseEntity {
+public class CohortStatus extends BaseEntityIdentity {
 
     @Getter
     @Setter

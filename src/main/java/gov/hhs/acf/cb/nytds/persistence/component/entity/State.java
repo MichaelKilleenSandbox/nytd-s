@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 @Table(name = "STATE")
 @AttributeOverride(name = "id", column = @Column(name = "stateId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_STATE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 @Getter
 @Setter(AccessLevel.PROTECTED)
 public class State extends BaseEntity {

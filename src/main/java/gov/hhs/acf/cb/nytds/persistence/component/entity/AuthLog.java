@@ -20,6 +20,7 @@ import lombok.Setter;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import java.sql.Timestamp;
 import java.util.Calendar;
 
@@ -30,6 +31,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "AUTHLOGID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_AUTHLOG", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class AuthLog extends BaseEntity {
     @Getter
     @Setter

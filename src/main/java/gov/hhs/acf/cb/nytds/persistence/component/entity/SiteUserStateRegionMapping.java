@@ -11,6 +11,7 @@ import javax.persistence.*;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "SiteUserStateRegionMappingId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_SITEUSERSTATERGN", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class SiteUserStateRegionMapping extends BaseEntity {
     @Getter
     @Setter

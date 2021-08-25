@@ -13,6 +13,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "DataAggregateId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_DATAAGGREGATE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class DataAggregate extends AggregateValue {
     @Getter
     @Setter

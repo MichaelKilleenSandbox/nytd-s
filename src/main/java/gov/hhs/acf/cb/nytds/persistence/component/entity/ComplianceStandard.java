@@ -13,6 +13,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "ComplianceStandardId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_COMPLIANCESTANDARD", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class ComplianceStandard extends BaseEntity {
     @Getter
     @Setter

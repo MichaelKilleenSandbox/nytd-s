@@ -15,6 +15,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "COMPLIANCECATEGORYID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_COMPLIANCECATEGORY", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class ComplianceCategory extends BaseEntity {
     @Getter
     @Setter

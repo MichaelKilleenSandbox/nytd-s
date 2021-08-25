@@ -15,6 +15,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "TransmissionId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_TRANSMISSION", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class Transmission extends BaseEntity {
     @Getter
     @Setter

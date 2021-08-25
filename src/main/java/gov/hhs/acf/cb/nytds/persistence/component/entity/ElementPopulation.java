@@ -13,6 +13,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "ElementPopulationId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ELEMENTPOPULATION", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class ElementPopulation extends BaseEntity {
     @Getter
     @Setter

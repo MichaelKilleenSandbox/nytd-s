@@ -16,10 +16,12 @@ package gov.hhs.acf.cb.nytds.persistence.component.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-
+import javax.persistence.AttributeOverride;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.SequenceGenerator;
 import java.util.Calendar;
 
 /**
@@ -27,6 +29,8 @@ import java.util.Calendar;
  *
  */
 @Entity
+@AttributeOverride(name = "id", column = @Column(name = "messagerecipientid"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_MESSAGERECIPIENT", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class MessageRecipient extends BaseEntity {
     @Getter
     @Setter

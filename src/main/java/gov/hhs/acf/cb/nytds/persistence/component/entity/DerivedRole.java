@@ -14,6 +14,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "DerivedRoleId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_DERIVEDROLE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class DerivedRole extends BaseEntity {
     @Getter
     @Setter

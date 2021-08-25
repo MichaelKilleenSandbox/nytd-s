@@ -14,6 +14,7 @@ import java.util.Calendar;
 @Entity
 @Table(name="AllowedValue")
 @AttributeOverride(name = "id", column = @Column(name = "ALLOWEDVALUEID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ALLOWEDVALUE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class AllowedValue extends BaseEntity {
     @Getter
     @Setter

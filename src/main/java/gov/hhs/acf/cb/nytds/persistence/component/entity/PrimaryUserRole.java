@@ -9,6 +9,7 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
+import javax.persistence.SequenceGenerator;
 import java.util.Calendar;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "PRIMARYUSERROLEID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_PRIMARYUSERROLE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class PrimaryUserRole extends BaseEntity {
     // TODO mjk not mapped in hbm.xml
 //	@Getter	@Setter

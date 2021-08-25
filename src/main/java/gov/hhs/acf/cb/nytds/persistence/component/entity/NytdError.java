@@ -15,7 +15,8 @@ import java.util.Calendar;
  * @author 18816
  */
 @Entity
-@AttributeOverride(name = "id", column = @Column(name = "NytdErrorId"))
+@AttributeOverride(name = "id", column = @Column(name = "ERRORID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ERROR", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class NytdError extends BaseEntity {
 
     public static final String AGGREGATE_ERROR = "aggregateType";

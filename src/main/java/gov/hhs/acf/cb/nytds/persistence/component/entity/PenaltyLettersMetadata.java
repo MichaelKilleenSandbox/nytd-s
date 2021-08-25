@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import java.text.DateFormat;
 
 /**
@@ -16,7 +17,8 @@ import java.text.DateFormat;
 
 @Builder(toBuilder = true)
 @Entity
-@AttributeOverride(name = "id", column = @Column(name = "PENALTYLETTERSMETADATAID"))
+@AttributeOverride(name = "id", column = @Column(name = "PENALTYLETTERSMETADATAID")) 
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_PENALTYLETTERSMETADATA", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class PenaltyLettersMetadata extends BaseEntity {
 
     @Getter @Setter

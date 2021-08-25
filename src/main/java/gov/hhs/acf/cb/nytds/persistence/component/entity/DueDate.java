@@ -13,6 +13,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "DueDateId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_DUEDATE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class DueDate extends BaseEntity {
     @Getter
     @Setter

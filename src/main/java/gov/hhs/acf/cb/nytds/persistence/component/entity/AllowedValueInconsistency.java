@@ -14,6 +14,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "AllowedValueInconsistencyId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ALLOWEDVALUEINCONSISTENCY", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class AllowedValueInconsistency extends BaseEntity {
     @Getter
     @Setter

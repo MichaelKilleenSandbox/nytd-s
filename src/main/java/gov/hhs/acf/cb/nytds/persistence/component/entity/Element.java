@@ -16,6 +16,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "elementId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ELEMENT", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class Element extends BaseEntity {
     @Getter
     @Setter

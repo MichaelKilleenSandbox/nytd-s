@@ -3,12 +3,16 @@ package gov.hhs.acf.cb.nytds.persistence.component.entity;
 import gov.hhs.acf.cb.nytds.util.DateUtil;
 import lombok.Getter;
 import lombok.Setter;
-
+import javax.persistence.AttributeOverride;
 import javax.persistence.Entity;
+import javax.persistence.Column;
+import javax.persistence.SequenceGenerator;
 import java.text.DateFormat;
 
 @Entity
 public class ExportMetadata extends BaseEntity {
+@AttributeOverride(name = "id", column = @Column(name = "ExportMetaDataId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_EXPORTMETADATA", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
     @Getter
     @Setter
     private String fileName;

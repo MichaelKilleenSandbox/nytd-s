@@ -27,6 +27,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "SamplingRequestHistoryId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_SAMPLINGREQUESTHISTORY", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class SamplingRequestHistory extends BaseEntity {
 
     @Getter

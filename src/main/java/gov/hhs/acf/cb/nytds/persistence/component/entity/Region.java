@@ -17,6 +17,7 @@ import java.util.Set;
 @Entity
 @Table(name = "REGION")
 @AttributeOverride(name = "id", column = @Column(name = "regionId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_REGION", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 @ToString
 public class Region extends BaseEntity {
     @Getter

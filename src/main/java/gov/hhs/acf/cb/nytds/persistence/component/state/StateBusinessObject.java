@@ -1,11 +1,8 @@
 package gov.hhs.acf.cb.nytds.persistence.component.state;
 
-import gov.hhs.acf.cb.nytds.persistence.component.BaseComponent;
+
 import gov.hhs.acf.cb.nytds.persistence.component.entity.Region;
 import lombok.Getter;
-import org.springframework.beans.factory.annotation.Value;
-
-import java.util.Calendar;
 
 @Getter
 public class StateBusinessObject {

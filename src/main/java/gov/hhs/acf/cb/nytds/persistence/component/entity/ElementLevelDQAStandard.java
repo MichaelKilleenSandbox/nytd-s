@@ -13,7 +13,7 @@ import java.util.Calendar;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "ELEMENTLEVELDQASTDID"))
-public class ElementLevelDQAStandard extends BaseEntity {
+public class ElementLevelDQAStandard extends BaseEntityIdentity {
     @Getter
     @Setter
     private String name;

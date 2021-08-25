@@ -18,17 +18,17 @@ import java.util.regex.Pattern;
 
 
 @MappedSuperclass
-public abstract class BaseEntity {
+public abstract class BaseEntityIdentity {
     // regular expression pattern for named parameters in messages
     // parameter format in messages is ${parameterName}
     private static final Pattern paramPattern = Pattern.compile("(\\$\\{(\\w+)\\})");
-    public static final int DEFAULT_SEQUENCE_ALLOCATION_SIZE = 1;
+    public static final long DEFAULT_SEQUENCE_ALLOCATION_SIZE = 1;
 
     @Id
     @Getter
     @Setter(AccessLevel.PROTECTED)
     @Column
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "default_gen")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected long id;
     @Version
     @Column(name = "version")

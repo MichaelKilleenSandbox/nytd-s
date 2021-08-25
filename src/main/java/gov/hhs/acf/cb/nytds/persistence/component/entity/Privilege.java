@@ -9,6 +9,7 @@ import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import java.util.Calendar;
 import java.util.Set;
 
@@ -17,6 +18,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "PRIVILEGEID"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_PRIVILEGE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class Privilege extends BaseEntity {
     @Getter
     @Setter

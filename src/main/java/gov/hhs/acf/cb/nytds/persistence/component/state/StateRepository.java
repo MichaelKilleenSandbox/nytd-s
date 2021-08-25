@@ -10,15 +10,12 @@ import java.util.List;
 @Repository
 interface StateRepository extends JpaRepository<State, Long> {
 
-    StateBusinessObject findStateByAbbreviation(String stateAbbreviation);
+    StateView findStateByAbbreviation(String stateAbbreviation);
 
     StateView findStateById(Long id);
 
     List<StateView> findStateByRegion(Region region);
 
     List<StateView> findStateByRegionId(Long id);
-
-
-
 
 }

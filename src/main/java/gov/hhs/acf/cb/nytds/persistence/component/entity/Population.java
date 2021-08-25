@@ -16,6 +16,7 @@ import java.util.Set;
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @AttributeOverride(name = "id", column = @Column(name = "populationId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_POPULATION", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class Population extends BaseEntity {
     @Getter
     @Setter

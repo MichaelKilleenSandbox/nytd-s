@@ -8,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.SequenceGenerator;
 import java.math.BigDecimal;
 
 /*
@@ -15,6 +16,7 @@ import java.math.BigDecimal;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "AggregateValueId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_ALLOWEDVALUE",  allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class AggregateValue extends BaseEntity {
     @Getter
     @Setter

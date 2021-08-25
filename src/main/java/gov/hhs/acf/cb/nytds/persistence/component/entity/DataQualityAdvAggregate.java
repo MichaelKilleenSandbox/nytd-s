@@ -12,6 +12,7 @@ import javax.persistence.*;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "DataQualityAdvAggregateId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_DATAQUALITYADVAGGREGATE", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class DataQualityAdvAggregate extends AggregateValue {
     @Getter
     @Setter

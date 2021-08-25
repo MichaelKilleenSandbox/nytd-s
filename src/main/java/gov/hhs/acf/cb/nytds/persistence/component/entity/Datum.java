@@ -14,6 +14,7 @@ import java.util.Set;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "DatumId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_DATUM", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class Datum extends BaseEntity {
     @Getter
     @Setter

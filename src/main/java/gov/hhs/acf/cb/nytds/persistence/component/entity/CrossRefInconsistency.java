@@ -13,6 +13,7 @@ import javax.persistence.*;
  */
 @Entity
 @AttributeOverride(name = "id", column = @Column(name = "CrossRefInconsistencyId"))
+@SequenceGenerator(name = "default_gen", sequenceName = "SEQ_CROSSREFINCONSISTENCY", allocationSize = BaseEntity.DEFAULT_SEQUENCE_ALLOCATION_SIZE)
 public class CrossRefInconsistency extends BaseEntity {
     @Getter
     @Setter

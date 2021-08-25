@@ -17,8 +17,8 @@ class StateServiceImpl implements StateService {
 
 
     @Override
-    public Optional<StateBusinessObject> findStateByAbbreviation(String stateAbbreviation) {
-        StateBusinessObject state = stateRepository.findStateByAbbreviation(stateAbbreviation);
+    public Optional<StateView> findStateByAbbreviation(String stateAbbreviation) {
+        StateView state = stateRepository.findStateByAbbreviation(stateAbbreviation);
         return Optional.ofNullable(state);
     }
 
