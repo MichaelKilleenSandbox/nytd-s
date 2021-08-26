@@ -2,6 +2,7 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 
 // Generated May 20, 2009 10:16:43 AM by Hibernate Tools 3.2.4.GA
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +40,7 @@ public class ReportingPeriod extends BaseEntity implements Serializable {
     private Set<DueDate> dueDates;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "reportingPeriod")
     private Set<Transmission> transmissions;
     @Getter

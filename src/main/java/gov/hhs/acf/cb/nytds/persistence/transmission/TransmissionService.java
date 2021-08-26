@@ -34,7 +34,7 @@ public interface TransmissionService {
      * @param id database identifier of the transmission to get
      * @return transmission with given database identifier
      */
-    Optional<TransmissionView> findTransmissionWithId(Long id);
+    Optional<Transmission> findTransmissionWithId(Long id);
 
 
     /**

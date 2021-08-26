@@ -19,6 +19,7 @@ public interface TransmissionRepository extends JpaRepository<Transmission, Long
      */
     //List<Transmission> getActiveSubmittedTransmissions(State state);
     List<Transmission> findAllByStateAndSubmissionStatusEquals(State state, String status);
+    List<Transmission> findAllByState_IdAndSubmissionStatusEquals(Long stateId, String status);
 
 
     /**
@@ -39,6 +40,6 @@ public interface TransmissionRepository extends JpaRepository<Transmission, Long
      */
     Optional<Transmission> findById(Long id);
 
-    TransmissionView findTransmissionById(Long id);
+    Transmission findTransmissionById(Long id);
 
 }

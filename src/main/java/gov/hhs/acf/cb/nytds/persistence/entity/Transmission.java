@@ -2,6 +2,8 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 
 // Generated May 20, 2009 10:16:43 AM by Hibernate Tools 3.2.4.GA
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,11 +21,13 @@ import java.util.Set;
 public class Transmission extends BaseEntity {
     @Getter
     @Setter
-    @ManyToOne
+    @JsonBackReference
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "TransmissionTypeId")
     private TransmissionType transmissionType;
     @Getter
     @Setter
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "reportingPeriodId")
     private ReportingPeriod reportingPeriod;
@@ -51,6 +55,7 @@ public class Transmission extends BaseEntity {
     private Calendar submittedDate;
     @Getter
     @Setter
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "siteUserId")
     private SiteUser siteUser;
@@ -65,6 +70,7 @@ public class Transmission extends BaseEntity {
     private Calendar fileReceivedDate;
     @Getter
     @Setter
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "stateId")
     private State state;
@@ -103,22 +109,27 @@ public class Transmission extends BaseEntity {
     private Long recordsCnt;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "transmission")
     private Set<NonCompliance> nonCompliances;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "transmission")
     private Set<TransmissionNote> transmissionNotes;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "transmission")
     private Set<ElementNote> elementNotes;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "transmission")
     private Set<TransmissionRecord> transmissionRecords;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "transmission")
     private Set<DataAggregate> dataAggregates;
 

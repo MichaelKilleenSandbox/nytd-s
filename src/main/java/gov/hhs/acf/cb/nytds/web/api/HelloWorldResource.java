@@ -1,9 +1,9 @@
 package gov.hhs.acf.cb.nytds.web.api;
 
+import gov.hhs.acf.cb.nytds.persistence.entity.Transmission;
 import gov.hhs.acf.cb.nytds.persistence.state.StateService;
 import gov.hhs.acf.cb.nytds.persistence.state.StateView;
 import gov.hhs.acf.cb.nytds.persistence.transmission.TransmissionService;
-import gov.hhs.acf.cb.nytds.persistence.transmission.TransmissionView;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -39,12 +39,13 @@ public class HelloWorldResource {
     }
 
     @GetMapping("/helloworld2")
-    public ResponseEntity<TransmissionView> getHelloWorld2() {
+    public ResponseEntity<Transmission> getHelloWorld2() {
 
         System.out.println("TEST2");
-        Optional<TransmissionView> transmissionOptional = transmissionService.findTransmissionWithId(2384L);
+        Optional<Transmission> transmissionOptional = transmissionService.findTransmissionWithId(2384L);
         if(transmissionOptional.isPresent()) {
-            TransmissionView transmission = transmissionOptional.get();
+            Transmission transmission = transmissionOptional.get();
+            System.out.println(transmission.getTransmissionType().getName());
             return ResponseEntity.ok(transmission);
         }
         else {

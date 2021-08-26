@@ -22,7 +22,8 @@ class TransmissionServiceImpl implements TransmissionService {
 
     @Override
     public List<Transmission> findActiveSubmittedTransmissions(State state) {
-        return transmissionRepository.findAllByStateAndSubmissionStatusEquals(state, "Active");
+        //return transmissionRepository.findAllByStateAndSubmissionStatusEquals(state, "Active");
+        return transmissionRepository.findAllByState_IdAndSubmissionStatusEquals(state.getId(), "Active");
     }
 
     @Override
@@ -37,7 +38,7 @@ class TransmissionServiceImpl implements TransmissionService {
     }
 
     @Override
-    public Optional<TransmissionView> findTransmissionWithId(Long id) {
+    public Optional<Transmission> findTransmissionWithId(Long id) {
         return Optional.ofNullable(transmissionRepository.findTransmissionById(id));
     }
 

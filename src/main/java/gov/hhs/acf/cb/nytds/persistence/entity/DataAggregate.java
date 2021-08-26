@@ -1,5 +1,6 @@
 package gov.hhs.acf.cb.nytds.persistence.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,6 +23,7 @@ public class DataAggregate extends AggregateValue {
     private Lookup aggregateType;
     @Getter
     @Setter
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name = "transmissionId")
     private Transmission transmission;

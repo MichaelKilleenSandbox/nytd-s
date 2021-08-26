@@ -24,7 +24,7 @@ public abstract class BaseEntity {
     public static final int DEFAULT_SEQUENCE_ALLOCATION_SIZE = 1;
 
     @Id
-    @Getter
+    @Getter(AccessLevel.PUBLIC)
     @Setter(AccessLevel.PUBLIC)  // TODO Fix This access level during refactor.
     @Column
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "default_gen")
