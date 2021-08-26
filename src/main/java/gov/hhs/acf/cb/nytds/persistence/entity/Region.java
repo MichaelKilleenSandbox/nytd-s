@@ -2,6 +2,7 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 
 // Generated May 20, 2009 10:16:43 AM by Hibernate Tools 3.2.4.GA
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -28,6 +29,7 @@ public class Region extends BaseEntity implements Serializable {
     @Setter(AccessLevel.PROTECTED)
     private String regionCode;
     @OneToMany(mappedBy = "region")
+    @JsonManagedReference
     @Getter
     @Setter(AccessLevel.PROTECTED)
     private Set<State> states;

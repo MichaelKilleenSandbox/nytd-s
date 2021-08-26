@@ -1,6 +1,7 @@
 package gov.hhs.acf.cb.nytds.persistence.state;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.Region;
+import gov.hhs.acf.cb.nytds.persistence.entity.State;
 import org.springframework.stereotype.Service;
 
 import java.util.Collections;
@@ -8,13 +9,17 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-class StateServiceImpl implements StateService {
+class StateDALServiceImpl implements StateDALService {
     private StateRepository stateRepository;
 
-    StateServiceImpl(StateRepository stateRepository) {
+    StateDALServiceImpl(StateRepository stateRepository) {
         this.stateRepository = stateRepository;
     }
 
+    @Override
+    public List<State> findAllStates() {
+        return stateRepository.findAll();
+    }
 
     @Override
     public Optional<StateView> findStateByAbbreviation(String stateAbbreviation) {
@@ -36,5 +41,16 @@ class StateServiceImpl implements StateService {
     @Override
     public List<StateView> findStateByRegionId(Long id) {
         return Collections.unmodifiableList(stateRepository.findStateByRegionId(id));
+    }
+
+    @Override
+    public Optional<Region> findAssociatedRegion(String stateAbbreviation) {
+        return Optional.ofNullable(stateRepository.findAssociatedRegion(stateAbbreviation));
+    }
+
+    @Override
+    public List<State> findAssociatedStates(String stateAbbreviation)  {
+        List<State> states = stateRepository.findAssociatedStates(stateAbbreviation);
+        return states;
     }
 }

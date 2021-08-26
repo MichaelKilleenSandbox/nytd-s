@@ -1,7 +1,7 @@
 package gov.hhs.acf.cb.nytds.web.api;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.Transmission;
-import gov.hhs.acf.cb.nytds.persistence.state.StateService;
+import gov.hhs.acf.cb.nytds.persistence.state.StateDALService;
 import gov.hhs.acf.cb.nytds.persistence.state.StateView;
 import gov.hhs.acf.cb.nytds.persistence.transmission.TransmissionService;
 import org.springframework.http.ResponseEntity;
@@ -16,10 +16,10 @@ import java.util.Optional;
 @RestController
 public class HelloWorldResource {
 
-    private StateService stateService;
+    private StateDALService stateService;
     private TransmissionService transmissionService;
 
-    public HelloWorldResource(StateService stateService, TransmissionService transmissionService) {
+    public HelloWorldResource(StateDALService stateService, TransmissionService transmissionService) {
         this.stateService = stateService;
         this.transmissionService = transmissionService;
     }
@@ -27,7 +27,6 @@ public class HelloWorldResource {
     @GetMapping("/helloworld")
     public ResponseEntity<StateView> getHelloWorld() {
 
-        System.out.println("TEST");
         Optional<StateView> stateOptional = stateService.findStateByAbbreviation("NY");
         if(stateOptional.isPresent()) {
             StateView state = stateOptional.get();
