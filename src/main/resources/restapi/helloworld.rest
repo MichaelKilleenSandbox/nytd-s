@@ -1,13 +1,12 @@
-GET http://localhost:8082/helloworld
+###
+GET http://localhost:8082/state
 
 ###
+GET http://localhost:8082/state/NY/region
 
-POST http://localhost:8082/helloworld HTTP/1.1
-content-type: application/json
+###
+GET http://localhost:8082/state/CA/states
 
-{
-  "region": {},
-  "abbreviation": "NY",
-  "fipsCode": "36",
-  "stateName": "New York"
-}
+###
+GET http://localhost:8082/state/20
+
