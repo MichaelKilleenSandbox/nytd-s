@@ -23,6 +23,7 @@ import com.google.common.collect.ImmutableMap;
  * @author 16939, 18816
  * 
  */
+@Deprecated // mjk 8/27/2021 Now use NytdConstants. New name, same old constants.
 public class Constants
 {
 	public static final String COMPLIANCE = "COMPLIANCE";

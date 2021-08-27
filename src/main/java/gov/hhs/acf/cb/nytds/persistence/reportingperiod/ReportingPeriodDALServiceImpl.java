@@ -10,6 +10,10 @@ import java.util.*;
 class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
     private ReportingPeriodRepository reportingPeriodRepository;
 
+    ReportingPeriodDALServiceImpl(ReportingPeriodRepository reportingPeriodRepository) {
+        this.reportingPeriodRepository = reportingPeriodRepository;
+    }
+
     /**
      * @return
      */

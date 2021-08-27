@@ -9,6 +9,7 @@ import java.util.Map;
 /**
  * Utility class for Penalty Letters
  */
+@Deprecated
 public class PenaltyLetterUtil
 {
 

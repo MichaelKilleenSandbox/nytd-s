@@ -10,3 +10,21 @@ GET http://localhost:8082/state/CA/states
 ###
 GET http://localhost:8082/state/20
 
+###
+GET http://localhost:8082/siteuser
+
+###
+GET http://localhost:8082/reportingperiod
+
+
+###
+GET http://localhost:8082/reportingperiod
+
+###
+GET http://localhost:8082/element
+
+###
+GET http://localhost:8082/transmission
+
+###
+GET http://localhost:8082/element

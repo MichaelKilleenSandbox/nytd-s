@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class SiteUserDALServiceImpl implements SiteUserDALService {
+class SiteUserDALServiceImpl implements SiteUserDALService {
 
     private SiteUserRepository siteUserRepository;
 

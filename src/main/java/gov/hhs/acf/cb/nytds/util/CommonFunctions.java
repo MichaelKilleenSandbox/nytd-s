@@ -16,6 +16,7 @@ import java.util.Map;
  * @author Satinder Gill
  * @version $Revision: 1.0 $ $Date: 7/23/2009 $
  */
+@Deprecated
 public class CommonFunctions
 {
 	protected static Logger log = Logger.getLogger(CommonFunctions.class);

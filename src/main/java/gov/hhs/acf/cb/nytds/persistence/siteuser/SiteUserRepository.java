@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface SiteUserRepository extends JpaRepository<SiteUser,Long> {
+interface SiteUserRepository extends JpaRepository<SiteUser,Long> {
     List<SiteUser> findSiteUsersByEmailAddressAndDeletedAndPrimaryUserRole_IdIn(String emailAddress, Boolean deleted, List<Long> roleId);
     List<SiteUser> findSiteUsersByEmailAddressAndDeletedFalse(String emailAddress);
     List<SiteUser> findSiteUsersByPrimaryUserRole_IdAndRegion_IdAndDeletedFalse(Long userRoleId, Long regionId);
