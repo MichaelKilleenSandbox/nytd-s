@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-public interface TransmissionService {
+public interface TransmissionDALService {
     /**
      * Gets list of Transmission objects that are active ("current") submissions for a given state
      *

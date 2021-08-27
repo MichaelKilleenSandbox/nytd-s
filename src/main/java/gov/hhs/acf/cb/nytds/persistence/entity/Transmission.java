@@ -192,12 +192,6 @@ public class Transmission extends BaseEntity {
     private Long recordsinerrorcnt;
 
 
-
-
-
-
-
-
     public Transmission() {
     }
 
@@ -263,4 +257,20 @@ public class Transmission extends BaseEntity {
         return (getDuplicateRecordsCnt() != null && getDuplicateRecordsCnt() > 0)
                 && (getImproperFormattedValCnt() != null && getImproperFormattedValCnt() > 0);
     }
+
+    public String getFederalFileId() {
+        String federalFileId = "";
+        if (getFileName() != null) {
+            federalFileId = getFileName().replace(".xml", "_");
+        }
+        federalFileId += "TID.";
+        if (fileId != null) {
+            federalFileId += fileId;
+            federalFileId += "_";
+        }
+        federalFileId += id.toString();
+
+        return federalFileId;
+    }
+
 }

@@ -12,11 +12,11 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-class TransmissionServiceImpl implements TransmissionService {
+class TransmissionDALServiceImpl implements TransmissionDALService {
 
     private TransmissionRepository transmissionRepository;
 
-    TransmissionServiceImpl(TransmissionRepository transmissionRepository) {
+    TransmissionDALServiceImpl(TransmissionRepository transmissionRepository) {
         this.transmissionRepository = transmissionRepository;
     }
 

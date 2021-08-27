@@ -73,7 +73,8 @@ public class SiteUser extends BaseEntity implements Sender, Recipient {
     private boolean receiveEmailNotifications;
     @Getter
     @Setter
-    private boolean isDeleted;
+    @Column(name = "ISDELETED")
+    private boolean deleted;
     @Getter
     @Setter
     private Calendar pwChangedDate;

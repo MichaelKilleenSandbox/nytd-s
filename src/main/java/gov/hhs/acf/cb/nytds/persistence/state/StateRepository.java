@@ -15,7 +15,7 @@ interface StateRepository extends JpaRepository<State, Long> {
 
     StateView findStateById(Long id);
 
-    List<StateView> findStateByRegion(Region region);
+    List<StateView> findByOrderByStateNameAsc();
 
     List<StateView> findStateByRegionId(Long id);
 
@@ -24,7 +24,4 @@ interface StateRepository extends JpaRepository<State, Long> {
 
     @Query("SELECT s.region.states FROM State s WHERE s.abbreviation = :stateAbbreviation")
     List<State> findAssociatedStates(String stateAbbreviation);
-
-
-
 }

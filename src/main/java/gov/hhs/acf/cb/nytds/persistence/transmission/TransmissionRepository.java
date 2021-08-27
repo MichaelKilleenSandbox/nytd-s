@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TransmissionRepository extends JpaRepository<Transmission, Long> {
+interface TransmissionRepository extends JpaRepository<Transmission, Long> {
     /**
      * Gets list of Transmission objects that are active ("current") submissions for a given state
      *

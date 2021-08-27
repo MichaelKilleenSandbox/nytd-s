@@ -67,4 +67,5 @@ public class TransmissionRecord extends BaseEntity {
         this.datums = datums;
     }
 
+
 }

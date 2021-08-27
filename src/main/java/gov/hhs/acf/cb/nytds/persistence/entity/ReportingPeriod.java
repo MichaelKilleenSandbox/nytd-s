@@ -6,11 +6,7 @@ import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Set;
@@ -27,9 +23,11 @@ public class ReportingPeriod extends BaseEntity implements Serializable {
     private String name;
     @Getter
     @Setter
+    @Temporal(TemporalType.DATE)
     private Calendar startReportingDate;
     @Getter
     @Setter
+    @Temporal(TemporalType.DATE)
     private Calendar endReportingDate;
     @Getter
     @Setter

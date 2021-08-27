@@ -3,7 +3,7 @@ package gov.hhs.acf.cb.nytds.web.api;
 import gov.hhs.acf.cb.nytds.persistence.entity.Transmission;
 import gov.hhs.acf.cb.nytds.persistence.state.StateDALService;
 import gov.hhs.acf.cb.nytds.persistence.state.StateView;
-import gov.hhs.acf.cb.nytds.persistence.transmission.TransmissionService;
+import gov.hhs.acf.cb.nytds.persistence.transmission.TransmissionDALService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -17,9 +17,9 @@ import java.util.Optional;
 public class HelloWorldResource {
 
     private StateDALService stateService;
-    private TransmissionService transmissionService;
+    private TransmissionDALService transmissionService;
 
-    public HelloWorldResource(StateDALService stateService, TransmissionService transmissionService) {
+    public HelloWorldResource(StateDALService stateService, TransmissionDALService transmissionService) {
         this.stateService = stateService;
         this.transmissionService = transmissionService;
     }
