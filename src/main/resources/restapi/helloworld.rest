@@ -16,7 +16,6 @@ GET http://localhost:8082/siteuser
 ###
 GET http://localhost:8082/reportingperiod
 
-
 ###
 GET http://localhost:8082/reportingperiod
 
