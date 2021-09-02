@@ -4,6 +4,7 @@ import gov.hhs.acf.cb.nytds.persistence.entity.Region;
 import gov.hhs.acf.cb.nytds.persistence.entity.State;
 import gov.hhs.acf.cb.nytds.persistence.state.StateDALService;
 import gov.hhs.acf.cb.nytds.persistence.state.StateView;
+import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -67,6 +68,12 @@ public class StateResource {
     @GetMapping("/state/{stateAbbreviation}/states")
     public ResponseEntity<List<State>> getAssociatedStates(@PathVariable String stateAbbreviation) {
         List<State> states = stateService.findAssociatedStates(stateAbbreviation);
+        return ResponseEntity.ok(states);
+    }
+
+    @GetMapping("/state/page/{pageNumber}/size/{pageSize}")
+    public ResponseEntity<Page<StateView>> getStatesByPage(@PathVariable Integer pageNumber, @PathVariable Integer pageSize) {
+        Page<StateView> states = stateService.findAllStates(pageNumber,pageSize);
         return ResponseEntity.ok(states);
     }
 

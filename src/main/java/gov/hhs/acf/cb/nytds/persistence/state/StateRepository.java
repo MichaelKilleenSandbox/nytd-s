@@ -2,6 +2,8 @@ package gov.hhs.acf.cb.nytds.persistence.state;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.Region;
 import gov.hhs.acf.cb.nytds.persistence.entity.State;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -10,6 +12,8 @@ import java.util.List;
 
 @Repository
 interface StateRepository extends JpaRepository<State, Long> {
+
+    Page<StateView> findAllByOrderByAbbreviation(Pageable pageable);
 
     StateView findStateByAbbreviation(String stateAbbreviation);
 

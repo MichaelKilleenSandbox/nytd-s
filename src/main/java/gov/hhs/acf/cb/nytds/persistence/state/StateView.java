@@ -1,11 +1,12 @@
 package gov.hhs.acf.cb.nytds.persistence.state;
 
 
-import gov.hhs.acf.cb.nytds.persistence.entity.Region;
+import org.springframework.beans.factory.annotation.Value;
 
 public interface StateView {
     Long getId();
-    Region getRegion();
+    @Value("#{target.region.region}")
+    String getRegion();
     String getStateName();
     String getAbbreviation();
     String getFipsCode();

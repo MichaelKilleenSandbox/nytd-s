@@ -3,6 +3,7 @@ package gov.hhs.acf.cb.nytds.persistence.state;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.Region;
 import gov.hhs.acf.cb.nytds.persistence.entity.State;
+import org.springframework.data.domain.Page;
 
 import java.util.List;
 import java.util.Map;
@@ -11,6 +12,8 @@ import java.util.Optional;
 public interface StateDALService {
 
     List<State> findAllStates();
+
+    Page<StateView> findAllStates(int pageNumber, int pageSize);
 
     Optional<StateView> findStateByAbbreviation(String stateAbbreviation);
 

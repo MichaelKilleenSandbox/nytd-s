@@ -2,6 +2,7 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 
 // Generated May 20, 2009 10:16:43 AM by Hibernate Tools 3.2.4.GA
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -19,6 +20,7 @@ import java.util.Set;
 public class ComplianceCategory extends BaseEntity {
     @Getter
     @Setter
+    @JsonBackReference
     @ManyToOne
     @JoinColumn(name="SUPERCATEGORYID")
     private ComplianceSuperCategory complianceSuperCategory;

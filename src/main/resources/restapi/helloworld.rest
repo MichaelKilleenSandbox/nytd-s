@@ -27,3 +27,74 @@ GET http://localhost:8082/transmission
 
 ###
 GET http://localhost:8082/element
+
+###
+GET http://localhost:8082/compliance/nonpenaltycategories
+
+###
+GET http://localhost:8082/compliance/nonpenaltycategories
+
+###
+GET http://localhost:8082/compliance/aggregateerrorcategories
+
+###
+GET http://localhost:8082/compliance/recordErrorCategories
+
+###
+GET http://localhost:8082/compliance/dataStandardsCategories
+
+###
+GET http://localhost:8082/compliance/transmissionErrorCategories
+
+###
+GET http://localhost:8082/compliance/fileSubmissionStandardsCategories
+
+###
+GET http://localhost:8082/compliance/fileSubmissionStandardsCategories
+
+###
+GET http://localhost:8082/compliance/fileSubmissionStandardsCategories
+
+###
+GET http://localhost:8082/compliance/calcFileSubmissionPenalty/2382
+
+
+###
+GET http://localhost:8082/compliance/nonpenaltycategories
+
+###
+GET http://localhost:8082/compliance/aggregateerrorcategories
+
+###
+GET http://localhost:8082/compliance/aggregateerrorcategories
+
+###
+GET http://localhost:8082/compliance/aggregateerrorcategories
+
+###
+GET http://localhost:8082/compliance/aggregateerrorcategories
+
+###
+GET http://localhost:8082/compliance/aggregateerrorcategories
+
+###
+GET http://localhost:8082/compliance/recordErrorCategories
+
+
+###
+GET http://localhost:8082/compliance/recordErrorCategories
+
+###
+GET http://localhost:8082/compliance/errorsForCategories/2382
+
+
+###
+GET http://localhost:8082/compliance/transmissionIsCompliant/2382
+
+
+###
+GET http://localhost:8082/compliance/errorsForCategories/2382
+
+
+###
+GET http://localhost:8082/state/page/2/size/10

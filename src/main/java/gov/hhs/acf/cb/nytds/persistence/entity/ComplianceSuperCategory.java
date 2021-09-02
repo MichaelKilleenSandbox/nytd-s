@@ -2,14 +2,11 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 
 // Generated May 20, 2009 10:16:43 AM by Hibernate Tools 3.2.4.GA
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.*;
 import java.util.Calendar;
 import java.util.Set;
 
@@ -25,6 +22,7 @@ public class ComplianceSuperCategory extends BaseEntity {
     private String name;
     @Getter
     @Setter
+    @JsonManagedReference
     @OneToMany(mappedBy = "complianceSuperCategory")
     private Set<ComplianceCategory> complianceCategories;
 

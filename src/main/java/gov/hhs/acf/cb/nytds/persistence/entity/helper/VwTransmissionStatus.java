@@ -2,6 +2,8 @@ package gov.hhs.acf.cb.nytds.persistence.entity.helper;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.BaseEntityIdentity;
 import gov.hhs.acf.cb.nytds.util.DateUtil;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Calendar;
@@ -14,38 +16,71 @@ import java.util.TimeZone;
 @SuppressWarnings("serial")
 public class VwTransmissionStatus extends BaseEntityIdentity
 {
+	@Getter @Setter
 	private Long transmissionId;
+	@Getter @Setter
 	private Calendar submittedDate;
+	@Getter @Setter
 	private String fileGenerationDate;
+	@Getter @Setter
 	private Calendar fileReceivedDate;
+	@Getter @Setter
 	private String reportingPeriod;
+	@Getter @Setter
 	private Calendar endReportingDate;
+	@Getter @Setter
 	private String transmissionType;
+	@Getter @Setter
 	private BigDecimal potentialPenalty;
+	@Getter @Setter
 	private BigDecimal dataStandardPenalty;
+	@Getter @Setter
 	private BigDecimal fileStandardPenalty;
+	@Getter @Setter
 	private String state;
+	@Getter @Setter
 	private String region;
+	@Getter @Setter
 	private BigDecimal datValueCompliantCnt;
+	@Getter @Setter
 	private BigDecimal datValueDataQualtyAdvisCnt;
+	@Getter @Setter
 	private BigDecimal timelyErrCnt;
+	@Getter @Setter
 	private BigDecimal formatErrCnt;
+	@Getter @Setter
 	private BigDecimal recordLevelErrCnt;
+	@Getter @Setter
 	private BigDecimal transmissionLevelErrCnt;
+	@Getter @Setter
 	private String strFileReceivedDate;
+	@Getter @Setter
 	private String strSubmittedDate;
+	@Getter @Setter
 	private String complianceStatus;
+	@Getter @Setter
 	private String submissionStatus;
+	@Getter @Setter
 	private BigDecimal numberOfRecordsInFile;
+	@Getter @Setter
 	private String fileName;
+	@Getter @Setter
 	private String description;
+	@Getter @Setter
 	private String processingStatus;
+	@Getter @Setter
 	private String stateAbbr;
+
 	//private String xmlTransmissionType;
+	@Getter @Setter
 	private String dataFileTransmissionTypeValue;
+	@Getter @Setter
 	private Long improperFormattedValCnt;
+	@Getter @Setter
 	private Integer elementLevelDQACnt;
+	@Getter @Setter
 	private Integer recordLevelDQACnt;
+
 	public VwTransmissionStatus()
 	{
 	}
@@ -81,159 +116,6 @@ public class VwTransmissionStatus extends BaseEntityIdentity
 		this.fileStandardPenalty = fileStandardPenalty;
 	}
 
-	public Long getTransmissionId()
-	{
-		return this.transmissionId;
-	}
-
-	public void setTransmissionId(Long transmissionid)
-	{
-		this.transmissionId = transmissionid;
-	}
-
-	public Calendar getSubmittedDate()
-	{
-		return this.submittedDate;
-	}
-
-	public void setSubmittedDate(Calendar submittedDate)
-	{
-		this.submittedDate = submittedDate;
-	}
-
-	/**
-	 * @return the fileGenerationDate
-	 */
-	public String getFileGenerationDate()
-	{
-		return fileGenerationDate;
-	}
-
-	/**
-	 * @param fileGenerationDate
-	 *           the fileGenerationDate to set
-	 */
-	public void setFileGenerationDate(String fileGenerationDate)
-	{
-		this.fileGenerationDate = fileGenerationDate;
-	}
-
-	public Calendar getFileReceivedDate()
-	{
-		return this.fileReceivedDate;
-	}
-
-	public void setFileReceivedDate(Calendar fileReceivedDate)
-	{
-		this.fileReceivedDate = fileReceivedDate;
-	}
-
-	public String getReportingPeriod()
-	{
-		return this.reportingPeriod;
-	}
-
-	public void setReportingPeriod(String reportingPeriod)
-	{
-		this.reportingPeriod = reportingPeriod;
-	}
-
-	public Calendar getEndReportingDate()
-	{
-		return this.endReportingDate;
-	}
-
-	public void setEndReportingDate(Calendar endReportingDate)
-	{
-		this.endReportingDate = endReportingDate;
-	}
-
-	public String getTransmissionType()
-	{
-		return this.transmissionType;
-	}
-
-	public void setTransmissionType(String transmissionType)
-	{
-		this.transmissionType = transmissionType;
-	}
-
-	public BigDecimal getPotentialPenalty()
-	{
-		return this.potentialPenalty;
-	}
-
-	public void setPotentialPenalty(BigDecimal potentialPenalty)
-	{
-		this.potentialPenalty = potentialPenalty;
-	}
-
-	public String getState()
-	{
-		return this.state;
-	}
-
-	public void setState(String state)
-	{
-		this.state = state;
-	}
-
-	public String getRegion()
-	{
-		return this.region;
-	}
-
-	public void setRegion(String region)
-	{
-		this.region = region;
-	}
-
-	public BigDecimal getDatValueCompliantCnt()
-	{
-		return this.datValueCompliantCnt;
-	}
-
-	public void setDatValueCompliantCnt(BigDecimal datValueCompliantCnt)
-	{
-		this.datValueCompliantCnt = datValueCompliantCnt;
-	}
-
-	/**
-	 * @return the datValueDataQualtyAdvisCnt
-	 */
-	public BigDecimal getDatValueDataQualtyAdvisCnt()
-	{
-		return datValueDataQualtyAdvisCnt;
-	}
-
-	/**
-	 * @param datValueDataQualtyAdvisCnt
-	 *           the datValueDataQualtyAdvisCnt to set
-	 */
-	public void setDatValueDataQualtyAdvisCnt(BigDecimal datValueDataQualtyAdvisCnt)
-	{
-		this.datValueDataQualtyAdvisCnt = datValueDataQualtyAdvisCnt;
-	}
-
-	public BigDecimal getTimelyErrCnt()
-	{
-		return this.timelyErrCnt;
-	}
-
-	public void setTimelyErrCnt(BigDecimal timelyErrCnt)
-	{
-		this.timelyErrCnt = timelyErrCnt;
-	}
-
-	public BigDecimal getFormatErrCnt()
-	{
-		return this.formatErrCnt;
-	}
-
-	public void setFormatErrCnt(BigDecimal formatErrCnt)
-	{
-		this.formatErrCnt = formatErrCnt;
-	}
 
 	/**
 	 * @return the strFileReceivedDate
@@ -258,179 +140,6 @@ public class VwTransmissionStatus extends BaseEntityIdentity
 		return strSubmittedDate;
 	}
 
-	/**
-	 * @return the recordLevelErrCnt
-	 */
-	public BigDecimal getRecordLevelErrCnt()
-	{
-		return recordLevelErrCnt;
-	}
-
-	/**
-	 * @param recordLevelErrCnt
-	 *           the recordLevelErrCnt to set
-	 */
-	public void setRecordLevelErrCnt(BigDecimal recordLevelErrCnt)
-	{
-		this.recordLevelErrCnt = recordLevelErrCnt;
-	}
-
-	/**
-	 * @return the transmissionLevelErrCnt
-	 */
-	public BigDecimal getTransmissionLevelErrCnt()
-	{
-		return transmissionLevelErrCnt;
-	}
-
-	/**
-	 * @param transmissionLevelErrCnt
-	 *           the transmissionLevelErrCnt to set
-	 */
-	public void setTransmissionLevelErrCnt(BigDecimal transmissionLevelErrCnt)
-	{
-		this.transmissionLevelErrCnt = transmissionLevelErrCnt;
-	}
-
-	/**
-	 * @return the strSubmittedDate
-	 */
-	public String getStrSubmittedDate()
-	{
-		return strSubmittedDate;
-	}
-
-	/**
-	 * @param strSubmittedDate
-	 *           the strSubmittedDate to set
-	 */
-	public void setStrSubmittedDate(String strSubmittedDate)
-	{
-		this.strSubmittedDate = strSubmittedDate;
-	}
-
-	/**
-	 * @param strFileReceivedDate
-	 *           the strFileReceivedDate to set
-	 */
-	public void setStrFileReceivedDate(String strFileReceivedDate)
-	{
-		this.strFileReceivedDate = strFileReceivedDate;
-	}
-
-	/**
-	 * @return the numberOfRecordsInFile
-	 */
-	public BigDecimal getNumberOfRecordsInFile()
-	{
-		return numberOfRecordsInFile;
-	}
-
-	/**
-	 * @param numberOfRecordsInFile
-	 *           the numberOfRecordsInFile to set
-	 */
-	public void setNumberOfRecordsInFile(BigDecimal numberOfRecordsInFile)
-	{
-		this.numberOfRecordsInFile = numberOfRecordsInFile;
-	}
-
-	/**
-	 * @return the currentSubmissionStatus
-	 */
-	public String getSubmissionStatus()
-	{
-		return submissionStatus;
-	}
-
-	/**
-	 * @param submissionStatus
-	 *           the currentSubmissionStatus to set
-	 */
-	public void setSubmissionStatus(String submissionStatus)
-	{
-		this.submissionStatus = submissionStatus;
-	}
-
-	/**
-	 * @return the fileName
-	 */
-	public String getFileName()
-	{
-		return fileName;
-	}
-
-	/**
-	 * @param fileName
-	 *           the fileName to set
-	 */
-	public void setFileName(String fileName)
-	{
-		this.fileName = fileName;
-	}
-
-	/**
-	 * @return the description
-	 */
-	@Override
-	public String getDescription()
-	{
-		return description;
-	}
-
-	/**
-	 * @param description
-	 *           the description to set
-	 */
-	@Override
-	public void setDescription(String description)
-	{
-		this.description = description;
-	}
-
-	/**
-	 * @return the processingStatus
-	 */
-	public String getProcessingStatus()
-	{
-		return processingStatus;
-	}
-
-	/**
-	 * @param processingStatus
-	 *           the processingStatus to set
-	 */
-	public void setProcessingStatus(String processingStatus)
-	{
-		this.processingStatus = processingStatus;
-	}
-
-	/**
-	 * @return the stateAbbr
-	 */
-	public String getStateAbbr()
-	{
-		return stateAbbr;
-	}
-
-	/**
-	 * @param stateAbbr
-	 *           the stateAbbr to set
-	 */
-	public void setStateAbbr(String stateAbbr)
-	{
-		this.stateAbbr = stateAbbr;
-	}
-
-	public String getComplianceStatus()
-	{
-		return complianceStatus;
-	}
-
-	public void setComplianceStatus(String complianceStatus)
-	{
-		this.complianceStatus = complianceStatus;
-	}
 
 	public String toString()
 	{
@@ -454,89 +163,4 @@ public class VwTransmissionStatus extends BaseEntityIdentity
 		this.xmlTransmissionType = xmlTransmissionType;
 	}*/
 
-	/**
-	 * @return the improperFormattedValCnt
-	 */
-	public Long getImproperFormattedValCnt()
-	{
-		return improperFormattedValCnt;
-	}
-
-	/**
-	 * @param improperFormattedValCnt the improperFormattedValCnt to set
-	 */
-	public void setImproperFormattedValCnt(Long improperFormattedValCnt)
-	{
-		this.improperFormattedValCnt = improperFormattedValCnt;
-	}
-
-	/**
-	 * @return the dataFileTransmissionTypeValue
-	 */
-	public String getDataFileTransmissionTypeValue()
-	{
-		return dataFileTransmissionTypeValue;
-	}
-
-	/**
-	 * @param dataFileTransmissionTypeValue the dataFileTransmissionTypeValue to set
-	 */
-	public void setDataFileTransmissionTypeValue(String dataFileTransmissionTypeValue)
-	{
-		this.dataFileTransmissionTypeValue = dataFileTransmissionTypeValue;
-	}
-
-	/**
-	 * @return the elementLevelDQACnt
-	 */
-	public Integer getElementLevelDQACnt()
-	{
-		return elementLevelDQACnt;
-	}
-
-	/**
-	 * @param elementLevelDQACnt the elementLevelDQACnt to set
-	 */
-	public void setElementLevelDQACnt(Integer elementLevelDQACnt)
-	{
-		this.elementLevelDQACnt = elementLevelDQACnt;
-	}
-
-	/**
-	 * @return the recordLevelDQACnt
-	 */
-	public Integer getRecordLevelDQACnt()
-	{
-		return recordLevelDQACnt;
-	}
-
-	/**
-	 * @param recordLevelDQACnt the recordLevelDQACnt to set
-	 */
-	public void setRecordLevelDQACnt(Integer recordLevelDQACnt)
-	{
-		this.recordLevelDQACnt = recordLevelDQACnt;
-	}
-
-	public BigDecimal getDataStandardPenalty() {
-		return dataStandardPenalty;
-	}
-
-	public void setDataStandardPenalty(BigDecimal dataStandardPenalty) {
-		this.dataStandardPenalty = dataStandardPenalty;
-	}
-
-	/**
-	 * @return the fileStandardPenalty
-	 */
-	public BigDecimal getFileStandardPenalty() {
-		return fileStandardPenalty;
-	}
-
-	/**
-	 * @param fileStandardPenalty the fileStandardPenalty to set
-	 */
-	public void setFileStandardPenalty(BigDecimal fileStandardPenalty) {
-		this.fileStandardPenalty = fileStandardPenalty;
-	}
 }
