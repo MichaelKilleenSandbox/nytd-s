@@ -10,7 +10,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Repository
-public interface ComplianceRepository extends JpaRepository<ComplianceCategory, Long> {
+public interface ComplianceRepository extends JpaRepository<ComplianceCategory, Long>, ComplianceSearchRepository {
 
     static final String ERRORS_FOR_CATEGORIES_QUERY = "select error\n" +
             "            from NytdError error\n" +

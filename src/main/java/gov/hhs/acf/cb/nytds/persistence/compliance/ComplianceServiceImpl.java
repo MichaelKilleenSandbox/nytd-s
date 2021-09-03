@@ -192,81 +192,20 @@ public class ComplianceServiceImpl extends BasicSearch implements ComplianceServ
 		return complianceRepository.findAll();
 	}
 
+	@Override
+	public ComplianceSearch searchDataAggregates(ComplianceSearch search) {
+		return complianceRepository.searchDataAggregates(search);
+	}
+
+	@Override
+	public PenaltySearch searchAggregatePenalties(PenaltySearch search) {
+		return complianceRepository.searchAggregatePenalties(search);
+	}
+
 	//TODO: there is no replacement for sqlRestriction(), rewrite with custom or/and use Named Native Query
 	//https://discourse.hibernate.org/t/deprecation-of-hibernate-criteria-and-how-we-can-still-prevent-it/788/18
 	//https://stackoverflow.com/questions/5182701/equivalent-of-hibernates-restrictions-sqlrestriction-in-jpa2-criteria-api
-//	@Override
-//	public ComplianceSearch searchDataAggregates(ComplianceSearch search)
-//	{
-//
-//
-//
-//		// Create a criteria object for DataAggregate
-//		Criteria criteria = getSessionFactory().getCurrentSession().createCriteria(DataAggregate.class);
-//
-//		// map of entity association criterias
-//		Map<String, Criteria> entityMap = new HashMap<String, Criteria>();
-//		entityMap.put("transmission", criteria.createCriteria("transmission"));
-//		entityMap.put("aggregateType", criteria.createCriteria("aggregateType"));
-//		entityMap.put("element", criteria.createCriteria("element"));
-//		entityMap.put("complianceStandard", entityMap.get("element").createCriteria("complianceStandard"));
-//
-//		// restrict to elementCompliance aggregate type the transmission id is
-//		// passed in the search object
-//		entityMap.get("transmission").add(Restrictions.eq("id", search.getTransmissionId()));
-//		entityMap.get("aggregateType").add(
-//				Restrictions.sqlRestriction("lower({alias}.codeDescription) = lower(?)", "ElementCompliance",
-//						StringType.INSTANCE));
-//
-//		// add sort
-//		if (search.getSortColumn() != null)
-//		{
-//			switch (search.getSortDirection())
-//			{
-//				case ASC:
-//					if (search.getSortAssociation() != null && !search.getSortAssociation().isEmpty())
-//					{
-//						entityMap.get(search.getSortAssociation()).addOrder(Order.asc(search.getSortColumn()));
-//					}
-//					else
-//					{
-//						criteria.addOrder(Order.asc(search.getSortColumn()));
-//					}
-//					break;
-//				case DESC:
-//					if (search.getSortAssociation() != null && !search.getSortAssociation().isEmpty())
-//					{
-//						entityMap.get(search.getSortAssociation()).addOrder(Order.desc(search.getSortColumn()));
-//					}
-//					else
-//					{
-//						criteria.addOrder(Order.desc(search.getSortColumn()));
-//					}
-//					break;
-//			}
-//		}
-//		else
-//		{
-//			// default sort is element id
-//			search.setSortAssociation("element");
-//			search.setSortColumn("id");
-//			search.setSortDirection(ComplianceSearch.SortDirection.ASC);
-//			entityMap.get("element").addOrder(Order.asc("id"));
-//		}
-//
-//		// eagerly fetch element and complianceStandard associations
-//		criteria.setFetchMode("element", FetchMode.JOIN);
-//		entityMap.get("element").setFetchMode("complianceStandard", FetchMode.JOIN);
-//
-//		/*
-//		 * ignore pagesize for aggregate compliance search. always return all
-//		 * element aggregates for the specified transmission id
-//		 */
-//		List<DataAggregate> results = criteria.list();
-//		search.setPageResults(results);
-//
-//		return search;
-//	}
+
 //	//TODO: there is no replacement for setResultTransformer() until Hibernate 6.0
 //	//http://wiki.openbravo.com/wiki/Hibernate_5.3_Migration_Guide#org.hibernate.query.Query.setResultTransformer.28.29
 //	@SuppressWarnings("deprecation")
@@ -509,122 +448,7 @@ public class ComplianceServiceImpl extends BasicSearch implements ComplianceServ
 //	 * @param search
 //	 * @return
 //	 */
-//	public PenaltySearch searchAggregatePenalties(PenaltySearch search)
-//	{
-//		List<VwTransmissionStatus> transmissionList = null;
-//
-//		// create criteria
-//		DetachedCriteria criteria = DetachedCriteria.forClass(VwTransmissionStatus.class);
-//
-//		// add state name restriction to criteria
-//		String stateName = search.getStateName();
-//		if (stateName != null && !stateName.isEmpty())
-//		{
-//			String[] stateNames = stateName.split(";");
-//			if (stateNames.length > 0 && !(stateName.trim()).equalsIgnoreCase("All"))
-//			{
-//				criteria.add(Restrictions.in("state", stateNames));
-//			}
-//		}
-//
-//                // generatePenaltiesLetters to get the results with selected states
-//                Collection<String> selectedStates = search.getSelectedStates().values();
-//                if (!selectedStates.isEmpty()) {
-//                    criteria.add(Restrictions.in("state", selectedStates));
-//                }
-//
-//		// add compliance status to criteria
-//		String complianceStatus = search.getComplianceStatus();
-//		if (complianceStatus != null
-//				&& (!complianceStatus.isEmpty() && (!(complianceStatus.trim()).equalsIgnoreCase("All"))))
-//		{
-//			criteria.add(Restrictions.eq("complianceStatus", complianceStatus.trim()));
-//		}
-//
-//		// restrict to specified reporting periods
-//		Collection<String> names = search.getSelectedReportingPeriods();
-//		if (names != null && names.size() > 0)
-//		{
-//			criteria.add(Restrictions.in("reportingPeriod", names));
-//		}
-//
-//		// restrict results to submitted transmissions
-//		if (search.isViewSubmissionsOnly())
-//		{
-//			criteria.add(Restrictions.isNotNull("submittedDate"));
-//		}
-//		if (search.isViewActiveSubmissionsOnly())
-//		{
-//			criteria.add(Restrictions.disjunction().add(Restrictions.eq("submissionStatus", "Active")).add(
-//					Restrictions.eq("submissionStatus", "active")));
-//		}
-//		String timelyData = search.getTimelyData();
-//		if (timelyData != null && !timelyData.isEmpty() && !timelyData.equalsIgnoreCase("All"))
-//		{
-//			criteria.add(Restrictions.eq("timelyErrCnt", new BigDecimal(timelyData)));
-//		}
-//
-//		String correctFormatData = search.getCorrectFormatData();
-//		if (correctFormatData != null && !correctFormatData.isEmpty()
-//				&& !correctFormatData.equalsIgnoreCase("All"))
-//		{
-//			criteria.add(Restrictions.eq("formatErrCnt", new BigDecimal(correctFormatData)));
-//		}
-//
-//		String errorFreeData = search.getErrorFreeData();
-//		if (errorFreeData != null && !errorFreeData.isEmpty() && !errorFreeData.equalsIgnoreCase("All"))
-//		{
-//
-//			if (Integer.parseInt(errorFreeData) == 0)
-//			{
-//				criteria.add(Restrictions.eq("datValueCompliantCnt", new BigDecimal(0)));
-//			}
-//			else
-//			{
-//				criteria.add(Restrictions.gt("datValueCompliantCnt", new BigDecimal(0)));
-//			}
-//		}
-//
-//		// execute count query to return row count
-//		criteria.setProjection(Projections.rowCount());
-//		Criteria countCriteria = criteria.getExecutableCriteria(getSessionFactory().getCurrentSession());
-//		Long lRowCount = (Long)countCriteria.uniqueResult();
-//		//search.setRowCount(((Integer) countCriteria.uniqueResult()));
-//		search.setRowCount(lRowCount.intValue());
-//		// search.setRowCount((Integer) countCriteria.uniqueResult());
-//		criteria.setProjection(null);
-//		criteria.setResultTransformer(Criteria.ROOT_ENTITY);
-//
-//		// add sort
-//		if (search.getSortColumn() != null)
-//		{
-//			switch (search.getSortDirection())
-//			{
-//				case ASC:
-//					criteria.addOrder(Order.asc(search.getSortColumn()));
-//					break;
-//				case DESC:
-//					criteria.addOrder(Order.desc(search.getSortColumn()));
-//					break;
-//			}
-//		}
-//		else
-//		{
-//			// default sort order
-//			criteria.addOrder(Order.desc("reportingPeriod"));
-//			search.setSortColumn("reportingPeriod");
-//			search.setSortDirection(PaginatedSearch.SortDirection.DESC);
-//
-//		}
-//
-//		// execute result query. limit results if page size > 0
-//		Criteria resultsCriteria = criteria.getExecutableCriteria(getSessionFactory().getCurrentSession());
-//        ExtendedDueDateDaoImpl.getPages(resultsCriteria, search.getPageSize(), search.getPage());
-//
-//        transmissionList = resultsCriteria.list();
-//		search.setPageResults(transmissionList);
-//		return search;
-//	}
+
 //
 //	/**
 //	 * @param search

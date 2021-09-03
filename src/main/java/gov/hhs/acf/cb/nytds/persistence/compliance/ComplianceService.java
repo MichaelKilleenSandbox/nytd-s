@@ -56,7 +56,7 @@ public interface ComplianceService
 
 	List<ComplianceCategory> findAllComplianceCatories();
 
-//	ComplianceSearch searchDataAggregates(ComplianceSearch search);
+	ComplianceSearch searchDataAggregates(ComplianceSearch search);
 //
 //	ComplianceSearch searchElementLevelAdvisories(ComplianceSearch search);
 //
@@ -68,7 +68,7 @@ public interface ComplianceService
 //
 //	ComplianceSearch searchTransmissionErrors(ComplianceSearch search);
 //
-//	PenaltySearch searchAggregatePenalties(PenaltySearch search);
+	PenaltySearch searchAggregatePenalties(PenaltySearch search);
 //
 //	PenaltySearch searchElementPenalties(PenaltySearch search);
 //

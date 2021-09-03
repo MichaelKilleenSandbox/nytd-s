@@ -5,6 +5,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-interface ExtendedDueDateRepository extends JpaRepository<ExtendedDueDate, Long> {
-
+interface ExtendedDueDateRepository extends JpaRepository<ExtendedDueDate, Long>, ExtendedDueDateSearchAndFilterRepository {
 }

@@ -1,6 +1,9 @@
 package gov.hhs.acf.cb.nytds.persistence.compliance;
 
+import gov.hhs.acf.cb.nytds.persistence.BasicSearch;
 import gov.hhs.acf.cb.nytds.persistence.entity.ComplianceCategory;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,13 +13,19 @@ import java.util.List;
  * User: 13873
  * Date: Apr 20, 2010
  */
-public class ComplianceSearch
+public class ComplianceSearch extends BasicSearch
 {
+	@Getter @Setter
 	private List<String> recordNumbers;
+	@Getter @Setter
 	private String elementNumber;
+	@Getter @Setter
 	private String elementName;
+	@Getter @Setter
 	private String complianceType;
+	@Getter @Setter
 	private Long datumId;
+	@Getter @Setter
 	private List<ComplianceCategory> nonPenaltyCategories;
 
 	public ComplianceSearch()
@@ -25,55 +34,7 @@ public class ComplianceSearch
 		loadDefaults();
 	}
 
-	public List<String> getRecordNumbers()
-	{
-		return recordNumbers;
-	}
 
-	public void setRecordNumbers(List<String> recordNumbers)
-	{
-		this.recordNumbers = recordNumbers;
-	}
-
-	public String getElementNumber()
-	{
-		return elementNumber;
-	}
-
-	public void setElementNumber(String elementNumber)
-	{
-		this.elementNumber = elementNumber;
-	}
-
-	public String getElementName()
-	{
-		return elementName;
-	}
-
-	public void setElementName(String elementName)
-	{
-		this.elementName = elementName;
-	}
-
-	public String getComplianceType()
-	{
-		return complianceType;
-	}
-
-	public void setComplianceType(String complianceType)
-	{
-		this.complianceType = complianceType;
-	}
-
-	public List<ComplianceCategory> getNonPenaltyCategories()
-	{
-		return nonPenaltyCategories;
-	}
-
-	public void setNonPenaltyCategories(List<ComplianceCategory> nonPenaltyCategories)
-	{
-		this.nonPenaltyCategories = nonPenaltyCategories;
-	}
 
 	public void reset()
 	{

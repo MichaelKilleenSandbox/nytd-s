@@ -1,6 +1,8 @@
 package gov.hhs.acf.cb.nytds.web.api;
 
+import gov.hhs.acf.cb.nytds.persistence.compliance.ComplianceSearch;
 import gov.hhs.acf.cb.nytds.persistence.compliance.ComplianceService;
+import gov.hhs.acf.cb.nytds.persistence.compliance.PenaltySearch;
 import gov.hhs.acf.cb.nytds.persistence.entity.ComplianceCategory;
 import gov.hhs.acf.cb.nytds.persistence.entity.NytdError;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -72,6 +75,27 @@ public class ComplianceResource {
         List<ComplianceCategory> categories = complianceService.findAllComplianceCatories();
         List<NytdError> complianceCategories = complianceService.getErrorsForCategories(transmissionId, Collections.emptyList());
         return ResponseEntity.ok(complianceCategories);
+    }
+
+    @GetMapping("/compliance/search")
+    public ResponseEntity<String> getSearch() {
+        ComplianceSearch complianceSearch = new ComplianceSearch();
+        complianceService.searchDataAggregates(complianceSearch);
+        return ResponseEntity.ok("Bingo");
+    }
+
+    @GetMapping("/compliance/aggregatepenalties")
+    public ResponseEntity<String> getAggregatePenalties() {
+        PenaltySearch penaltySearch = new PenaltySearch();
+        penaltySearch.setStateName("New York");
+        List<String> reportingPeriods = new ArrayList<>();
+        reportingPeriods.add("2021B");
+        penaltySearch.setSelectedReportingPeriods(reportingPeriods);
+        penaltySearch.setComplianceStatus("Compliant");
+        penaltySearch.setTimelyData("All");
+        penaltySearch.setCorrectFormatData("All");
+        complianceService.searchAggregatePenalties(penaltySearch);
+        return ResponseEntity.ok("Bongo");
     }
 
 
