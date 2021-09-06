@@ -227,6 +227,7 @@ public class ExtendedDueDateDaoImpl extends HibernateDaoSupport implements Exten
 //        return resultsCriteria;
 //    }
 
+    @Deprecated
     public static void getPages(Criteria resultsCriteria, int pageSize, int pageNum) {
         if (pageSize > 0) {
             int firstResult;

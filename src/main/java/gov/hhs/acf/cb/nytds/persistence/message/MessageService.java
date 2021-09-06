@@ -5,6 +5,7 @@ import gov.hhs.acf.cb.nytds.persistence.entity.SiteUser;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Service to build and send out message.
@@ -116,6 +117,6 @@ public interface MessageService {
      * @param messageId as Long
      * @return Message object
      */
-    Message getMessage(Long messageId);
+    Optional<Message> getMessage(Long messageId);
 
 }

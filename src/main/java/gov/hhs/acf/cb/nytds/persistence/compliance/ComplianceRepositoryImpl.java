@@ -41,8 +41,6 @@ class ComplianceRepositoryImpl implements ComplianceSearchRepository {
         CriteriaQuery<VwTransmissionStatus> cq = cb.createQuery(VwTransmissionStatus.class);
         Root<VwTransmissionStatus> root = cq.from(VwTransmissionStatus.class);
 
-        List<VwTransmissionStatus> books = entityManager.createQuery(cq).getResultList();
-
         List<Predicate> predicateList = new ArrayList<>();
 
         // add state name restriction to criteria

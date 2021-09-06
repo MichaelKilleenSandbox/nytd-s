@@ -32,6 +32,7 @@ import javax.persistence.SequenceGenerator;
 public class SystemGeneratedMessage extends BaseEntity {
     @Getter
     @Setter
+    @Column(length = 1000)
     private String systemMessageBody;
     @Getter
     @Setter

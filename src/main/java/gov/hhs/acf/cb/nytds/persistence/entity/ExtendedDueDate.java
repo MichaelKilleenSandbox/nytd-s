@@ -2,11 +2,8 @@ package gov.hhs.acf.cb.nytds.persistence.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import javax.persistence.AttributeOverride;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
+
+import javax.persistence.*;
 import java.util.Calendar;
 
 /*
@@ -24,9 +21,11 @@ public class ExtendedDueDate extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
-State state;
+    @JoinColumn(name = "stateId")
+    State state;
     @Getter
     @Setter
+    @Column(name = "EXTENDEDDUEDATE")
     private Calendar extendedDueDateCal;
 //    @Getter
 //    @Setter
@@ -37,6 +36,7 @@ State state;
     @Getter
     @Setter
     @ManyToOne
+    @JoinColumn(name = "dueDateId")
     private DueDate dueDate;
     @Getter
     @Setter

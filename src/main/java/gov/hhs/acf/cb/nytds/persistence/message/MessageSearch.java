@@ -1,6 +1,6 @@
 package gov.hhs.acf.cb.nytds.persistence.message;
 
-import gov.hhs.acf.cb.nytds.persistence.BasicSearch;
+import gov.hhs.acf.cb.nytds.persistence.PaginatedSearch;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -9,7 +9,7 @@ import lombok.Setter;
  * User: 13873
  * Date: Apr 20, 2010
  */
-public class MessageSearch extends BasicSearch
+public class MessageSearch extends PaginatedSearch
 {
 	// search criteria
 	@Getter @Setter private String messageCreatedStartDate;

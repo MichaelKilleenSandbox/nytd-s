@@ -25,6 +25,7 @@ public class Message extends BaseEntity {
     private String subject;
     @Getter
     @Setter
+    @Column(length = 2000)
     private String messageBody;
     @Getter
     @Setter
@@ -34,7 +35,7 @@ public class Message extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
-    @JoinColumn(name = "messageId")
+    @JoinColumn(name = "PARENTMESSAGEID")
     private Message parentMessage;
     @Getter
     @Setter
@@ -43,9 +44,10 @@ public class Message extends BaseEntity {
             joinColumns = @JoinColumn(name = "messageId"),
             inverseJoinColumns = @JoinColumn(name = "siteUserId"))
     private Set<SiteUser> recipients;
+
     @Getter
     @Setter
-    @OneToMany
+    @OneToMany(mappedBy = "parentMessage")
     private Set<Message> repliedMessages;
 
     // transient properties
