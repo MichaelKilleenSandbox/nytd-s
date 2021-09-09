@@ -1,10 +1,7 @@
 package gov.hhs.acf.cb.nytds.persistence.transmission;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.Datum;
-import gov.hhs.acf.cb.nytds.persistence.entity.helper.VwNote;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -29,9 +26,10 @@ public interface DatumRepository extends JpaRepository<Datum, Long> {
             "    and datum_.notes is not null\n" +
             "    order by this_.RECORDNUMBER, element_.NAME";
 
+    List<Datum> findDatumByTransmissionRecord_IdOrderByElement_Id(Long transmissionRecordId);
 
-    @Query(DatumNoteQuery)
-    List<VwNote> findDatumNotes(@Param("transmissionId") Long transmissionId);
+//    @Query(DatumNoteQuery)
+//    List<VwNote> findDatumNotesUsingTransmissionId(@Param("transmissionId") Long transmissionId);
 
 
 

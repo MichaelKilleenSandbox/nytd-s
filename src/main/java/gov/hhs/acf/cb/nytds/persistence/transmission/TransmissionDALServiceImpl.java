@@ -146,9 +146,10 @@ class TransmissionDALServiceImpl implements TransmissionDALService {
     @Override
     public List<VwNote> findDatumNotes(TransmissionSearch search) {
 
-        List<VwNote> datumList = datumRepository.findDatumNotes(search.getTransmissionId());
         // TODO mjk 9/8/2021 Finish this method.
-        return datumList;
+        //List<VwNote> datumList = datumRepository.findDatumNotesUsingTransmissionId(search.getTransmissionId());
+
+        return Collections.emptyList();
 
 //        Query qry = getSessionFactory().getCurrentSession().getNamedQuery("getDatumNotes");
 //        qry.setParameter("transmissionId", search.getTransmissionId());
@@ -172,5 +173,10 @@ class TransmissionDALServiceImpl implements TransmissionDALService {
 //        search.setPageResults(results);
 //        return search;
 
+    }
+
+    @Override
+    public List<Datum> findDatumByTransmissionRecordId(Long transmissionRecordId) {
+        return datumRepository.findDatumByTransmissionRecord_IdOrderByElement_Id(transmissionRecordId);
     }
 }

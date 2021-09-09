@@ -76,4 +76,5 @@ public interface ReportingPeriodDALService {
     Optional<ReportingPeriod> currentReportingPeriodForState(long daysDifference);
 
     Optional<ReportingPeriod> currentCorrectedReportingPeriodForState(long daysDifference);
+
 }

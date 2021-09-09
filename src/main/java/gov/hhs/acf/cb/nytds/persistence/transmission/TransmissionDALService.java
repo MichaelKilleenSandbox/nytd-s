@@ -118,4 +118,7 @@ public interface TransmissionDALService {
     List<TransmissionRecord> findRecordNotes(TransmissionSearch search);
 
     List<VwNote> findDatumNotes(TransmissionSearch search);
+
+    List<Datum> findDatumByTransmissionRecordId(Long transmissionRecordId);
+
 }

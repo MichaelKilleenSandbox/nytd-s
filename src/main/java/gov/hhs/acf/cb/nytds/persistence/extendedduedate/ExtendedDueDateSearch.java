@@ -72,6 +72,7 @@ public class ExtendedDueDateSearch extends PaginatedSearch {
         setReportingPeriod("0");
         setSortColumn("reportingPeriodName");
         setSortDirection(PaginatedSearch.SortDirection.ASC);
+        setStateName("All");
     }
 
 }

@@ -86,7 +86,9 @@ public class ExtendedDueDateRepositoryImpl implements ExtendedDueDateSearchAndFi
 
             cq.select(root).where(predicateList.toArray(Predicate[]::new));
             Query query = entityManager.createQuery(cq);
-/*
+
+            list = query.getResultList();
+            /*
  TODO mjk 9/2/2021 check into if we need this to be pageable.
             Pageable pageable = Pageable.ofSize(search.getPageSize()).withPage(search.getPage());
 

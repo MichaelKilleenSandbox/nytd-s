@@ -190,5 +190,4 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
         return reportingPeriodRepository.findCurrentCorrectedReportingPeriodForState(45 + daysDifference);
     }
 
-
 }
