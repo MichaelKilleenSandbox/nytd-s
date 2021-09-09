@@ -21,8 +21,7 @@ interface TransmissionRepository extends JpaRepository<Transmission, Long> {
     List<Transmission> findAllByStateAndSubmissionStatusEquals(State state, String status);
     List<Transmission> findAllByState_IdAndSubmissionStatusEquals(Long stateId, String status);
 
-
-    /**
+     /**
      * Gets list of Transmission objects that are active ("current") submissions for a given state and reporting period.
      * @param state state whose submissions are to be returned
      * @param reportingPeriod

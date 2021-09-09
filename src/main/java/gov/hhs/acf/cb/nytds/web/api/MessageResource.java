@@ -2,7 +2,7 @@ package gov.hhs.acf.cb.nytds.web.api;
 
 import gov.hhs.acf.cb.nytds.persistence.entity.Message;
 import gov.hhs.acf.cb.nytds.persistence.message.MessageSearch;
-import gov.hhs.acf.cb.nytds.persistence.message.MessageService;
+import gov.hhs.acf.cb.nytds.persistence.message.MessageDALService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,9 +13,9 @@ import java.util.Optional;
 @RestController
 public class MessageResource {
 
-    private MessageService messageService;
+    private MessageDALService messageService;
 
-    public MessageResource(MessageService messageService) {
+    public MessageResource(MessageDALService messageService) {
         this.messageService = messageService;
     }
 

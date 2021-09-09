@@ -16,7 +16,7 @@ import java.text.DateFormat;
 import java.util.*;
 
 @Service
-class MessageServiceImpl implements MessageService {
+class MessageDALServiceImpl implements MessageDALService {
 
     private static final String CREATED_DATE = "createdDate";
     // Spring mail sender used to send email notifications
@@ -29,7 +29,7 @@ class MessageServiceImpl implements MessageService {
     private MessageRecipientRepository messageRecipientRepository;
     private SystemGeneratedMessageRepository systemGeneratedMessageRepository;
 
-    MessageServiceImpl( MessageRepository messageRepository, MessageRecipientRepository messageRecipientRepository, SystemGeneratedMessageRepository systemGeneratedMessageRepository) {
+    MessageDALServiceImpl(MessageRepository messageRepository, MessageRecipientRepository messageRecipientRepository, SystemGeneratedMessageRepository systemGeneratedMessageRepository) {
 
         this.messageRepository = messageRepository;
         this.messageRecipientRepository = messageRecipientRepository;
@@ -193,7 +193,7 @@ class MessageServiceImpl implements MessageService {
     }
 
     /**
-     * @see MessageService#getMessage(Long)
+     * @see MessageDALService#getMessage(Long)
      * @return
      */
     @Override

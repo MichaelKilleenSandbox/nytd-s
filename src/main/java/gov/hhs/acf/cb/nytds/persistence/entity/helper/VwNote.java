@@ -75,4 +75,6 @@ public class VwNote implements Serializable
 	{
 		this.noteText = noteText;
 	}
+
+
 }

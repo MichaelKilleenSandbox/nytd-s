@@ -35,12 +35,12 @@ public class TransmissionRecord extends BaseEntity {
     @Getter
     @Setter
     @ManyToOne
-    //@JoinColumn(name = "populationId")
+    @JoinColumn(name = "SERVEDPOPULATIONID")
     private ServedPopulation servedPopulation;
     @Getter
     @Setter
     @ManyToOne
-    //@JoinColumn(name = "populationId")
+    @JoinColumn(name = "OUTCOMEPOPULATIONID")
     private OutcomePopulation outcomePopulation;
     @Getter
     @Setter

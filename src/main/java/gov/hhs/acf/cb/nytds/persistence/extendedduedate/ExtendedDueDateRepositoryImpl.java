@@ -48,6 +48,12 @@ public class ExtendedDueDateRepositoryImpl implements ExtendedDueDateSearchAndFi
                 predicateList.add(cb.equal(root.get("eddStateId"),Long.parseLong(search.getState())));
                 //criteria.add(Restrictions.eq("eddStateId", Long.parseLong(search.getState())));
             }
+
+            if(StringUtils.isNotBlank(search.getReportingPeriodName())) {
+                predicateList.add(cb.equal(root.get("name"),Long.parseLong(search.getReportingPeriodName())));
+            }
+
+
             if (null != StringUtils.trimToNull(search.getReportingPeriod())
                     && !search.getReportingPeriod().equalsIgnoreCase("0")) {
                 predicateList.add(cb.equal(root.get("reportingPeriodId"),Long.parseLong(search.getReportingPeriod())));

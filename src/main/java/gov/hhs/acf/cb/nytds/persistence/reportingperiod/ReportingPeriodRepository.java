@@ -3,10 +3,18 @@ package gov.hhs.acf.cb.nytds.persistence.reportingperiod;
 import gov.hhs.acf.cb.nytds.persistence.entity.ReportingPeriod;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.Calendar;
 import java.util.List;
+import java.util.Optional;
+
+    /*
+    from ReportingPeriod rp
+    where to_timestamp(sysdate - 45) between rp.startReportingDate and rp.endReportingDate
+    */
+
 
 @Repository
 interface ReportingPeriodRepository extends JpaRepository<ReportingPeriod, Long> {
@@ -42,8 +50,6 @@ interface ReportingPeriodRepository extends JpaRepository<ReportingPeriod, Long>
             + "having count(transmission) >= :minimumTransmissions "
             + "order by reportPeriod.endReportingDate desc ";
 
-
-
     List<ReportingPeriod> findByEndReportingDateGreaterThanAndEndReportingDateLessThan(Calendar lowDateBoundary, Calendar highDateBoundary);
     List<ReportingPeriod> findByEndReportingDateGreaterThanOrderByEndReportingDateAsc(Calendar dateBoundary);
     List<ReportingPeriod> findByEndReportingDateLessThanOrderByEndReportingDateDesc(Calendar endReportingDate);
@@ -59,7 +65,14 @@ interface ReportingPeriodRepository extends JpaRepository<ReportingPeriod, Long>
     @Query(THE_QUERY_OTHER)
     List<ReportingPeriodView> findDefaultUserReportingPeriodMap(Integer minimumTransmissions);
 
+    @Query("from ReportingPeriod rp where :target between rp.startReportingDate and rp.endReportingDate")
+    ReportingPeriod findReportingPeriodForDate(Calendar target);
+
+    @Query("from ReportingPeriod rp where to_timestamp(sysdate - :daysDiff) between rp.startReportingDate and rp.endReportingDate")
+    Optional<ReportingPeriod> findReportingPeriodForState(@Param("daysDiff") Long daysDiff);
+
+    @Query("from ReportingPeriod rp where to_timestamp(sysdate-(rp.endReportingDate-rp.startReportingDate)-:daysDiff) between rp.startReportingDate and rp.endReportingDate")
+    Optional<ReportingPeriod> findCurrentCorrectedReportingPeriodForState(Long daysDiff);
 
 
-
-}
+    }

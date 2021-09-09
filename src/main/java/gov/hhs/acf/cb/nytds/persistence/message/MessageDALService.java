@@ -12,7 +12,7 @@ import java.util.Optional;
  * User: 13873
  * Date: Jun 16, 2010
  */
-public interface MessageService {
+public interface MessageDALService {
 
     // constants
     static final String DATA_EXPORT_NOTIFICATION = "data export notification";

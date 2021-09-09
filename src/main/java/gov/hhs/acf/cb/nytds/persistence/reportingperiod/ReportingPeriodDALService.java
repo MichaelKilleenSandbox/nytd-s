@@ -70,4 +70,10 @@ public interface ReportingPeriodDALService {
      * @return id of reporting period
      */
     Optional<Long> findReportingPeriodIdByName(String reportingPeriodName);
+
+    Optional<ReportingPeriod> findCurrentReportingPeriod();
+
+    Optional<ReportingPeriod> currentReportingPeriodForState(long daysDifference);
+
+    Optional<ReportingPeriod> currentCorrectedReportingPeriodForState(long daysDifference);
 }

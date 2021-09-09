@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 class SiteUserDALServiceImpl implements SiteUserDALService {
@@ -53,5 +54,10 @@ class SiteUserDALServiceImpl implements SiteUserDALService {
     @Override
     public List<SiteUser> findByStateAndPrimaryRole(Long stateId, Long role) {
         return siteUserRepository.findSiteUsersByPrimaryUserRole_IdAndState_IdAndDeletedFalse(role, stateId);
+    }
+
+    @Override
+    public Optional<SiteUserSmallView> findSiteUserByUserName(String userName) {
+        return siteUserRepository.findSiteUserByUserName(userName);
     }
 }

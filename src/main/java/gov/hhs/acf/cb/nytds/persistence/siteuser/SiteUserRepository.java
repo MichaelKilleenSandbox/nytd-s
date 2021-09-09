@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 interface SiteUserRepository extends JpaRepository<SiteUser,Long> {
@@ -13,6 +14,5 @@ interface SiteUserRepository extends JpaRepository<SiteUser,Long> {
     List<SiteUser> findSiteUsersByPrimaryUserRole_IdAndRegion_IdAndDeletedFalse(Long userRoleId, Long regionId);
     List<SiteUser> findSiteUsersByPrimaryUserRole_IdAndState_IdAndDeletedFalse(Long userRoleId, Long stateId);
     List<SiteUser> findSiteUsersByPrimaryUserRoleAndDeletedFalse(Long userRoleId);
-
-
+    Optional<SiteUserSmallView> findSiteUserByUserName(String userName);
 }

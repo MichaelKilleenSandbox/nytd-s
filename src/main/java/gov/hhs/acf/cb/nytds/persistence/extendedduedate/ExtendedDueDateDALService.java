@@ -9,7 +9,7 @@ import java.util.Optional;
 /**
  * This service handles operations related to extended due date.
  */
-public interface ExtendedDueDateService  {
+public interface ExtendedDueDateDALService {
 
     /**
      * Get list of due date by due date data by search criteria.
@@ -43,6 +43,8 @@ public interface ExtendedDueDateService  {
      * @return String result status returned from dao
      */
     String deleteExtendedDueDateData(ExtendedDueDate extendedDueDate);
+
+    List<ExtendedDueDate> findByStateId(Long id);
         
     /**
      * Get a report period name by reporting period id.

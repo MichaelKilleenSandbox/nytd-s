@@ -18,8 +18,7 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
      * @return
      */
     @Override
-    public Optional<String> findReportPeriodName(Long reportPeriodId)
-    {
+    public Optional<String> findReportPeriodName(Long reportPeriodId) {
         Optional<ReportingPeriod> queryResult = reportingPeriodRepository.findById(reportPeriodId);
         return queryResult.map(ReportingPeriod::getName);
     }
@@ -28,12 +27,10 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
      * @return
      */
     @Override
-    public Optional<ReportingPeriod> findPreviousOutcomesReportingPeriod(ReportingPeriod reportPeriod)
-    {
-        assert(reportPeriod != null);
+    public Optional<ReportingPeriod> findPreviousOutcomesReportingPeriod(ReportingPeriod reportPeriod) {
+        assert (reportPeriod != null);
 
-        if (reportPeriod.getOutcomeAge() == null)
-        {
+        if (reportPeriod.getOutcomeAge() == null) {
             return Optional.empty();
         }
 
@@ -47,27 +44,25 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
         lowDateBoundary.add(Calendar.YEAR, -2);
         highDateBoundary.add(Calendar.YEAR, -2);
 
-       // Get the previous outcomes reporting period.
+        // Get the previous outcomes reporting period.
 
         List<ReportingPeriod> previousReportPeriods = reportingPeriodRepository
-                .findByEndReportingDateGreaterThanAndEndReportingDateLessThan( lowDateBoundary, highDateBoundary);
+                .findByEndReportingDateGreaterThanAndEndReportingDateLessThan(lowDateBoundary, highDateBoundary);
 
-        if (previousReportPeriods.isEmpty())
-        {
+        if (previousReportPeriods.isEmpty()) {
             return Optional.empty();
         }
-        assert(previousReportPeriods.size() == 1);
+        assert (previousReportPeriods.size() == 1);
         return Optional.of(previousReportPeriods.get(0));
     }
 
     /**
-     * @author Adam Russell (18816)
      * @return
+     * @author Adam Russell (18816)
      */
     @Override
-    public Optional<ReportingPeriod> findEnsuingReportPeriod(ReportingPeriod reportPeriod)
-    {
-        assert(reportPeriod != null);
+    public Optional<ReportingPeriod> findEnsuingReportPeriod(ReportingPeriod reportPeriod) {
+        assert (reportPeriod != null);
 
         List<ReportingPeriod> ensuingReportPeriods =
                 reportingPeriodRepository
@@ -77,8 +72,7 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
 //        query = "from ReportingPeriod as reportPeriod "
 //                + "where reportPeriod.endReportingDate > to_date('%1$td-%1$tb-%1$ty') "
 //                + "order by reportPeriod.endReportingDate asc";
-        if (ensuingReportPeriods.isEmpty())
-        {
+        if (ensuingReportPeriods.isEmpty()) {
             return Optional.empty();
         }
         return Optional.of(ensuingReportPeriods.get(0));
@@ -86,13 +80,12 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
     }
 
     /**
-     * @author Adam Russell (18816)
      * @return
+     * @author Adam Russell (18816)
      */
     @Override
-    public Optional<ReportingPeriod> findPrecedingReportPeriod(ReportingPeriod reportPeriod)
-    {
-        assert(reportPeriod != null);
+    public Optional<ReportingPeriod> findPrecedingReportPeriod(ReportingPeriod reportPeriod) {
+        assert (reportPeriod != null);
 
         List<ReportingPeriod> previousReportPeriods =
                 reportingPeriodRepository
@@ -103,8 +96,7 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
 //                + "where reportPeriod.endReportingDate < to_date('%1$td-%1$tb-%1$ty') "
 //                + "order by reportPeriod.endReportingDate desc";
 //
-        if (previousReportPeriods.isEmpty())
-        {
+        if (previousReportPeriods.isEmpty()) {
             return Optional.empty();
         }
         return Optional.of(previousReportPeriods.get(0));
@@ -114,8 +106,7 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
      * @author Adam Russell (18816)
      */
     @Override
-    public Map<String, String> findReportingPeriodSelectMap()
-    {
+    public Map<String, String> findReportingPeriodSelectMap() {
         Calendar now = new GregorianCalendar();
         now.setTime(new Date());
         // TODO mjk 8/27/2021 flagging this TODO. What's going on here???
@@ -130,7 +121,7 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
 
         final Map<String, String> selectMap = new LinkedHashMap<>();
         reportingPeriodViews.forEach(reportingPeriodView -> {
-            selectMap.put(String.valueOf(reportingPeriodView.getId()),reportingPeriodView.getName());
+            selectMap.put(String.valueOf(reportingPeriodView.getId()), reportingPeriodView.getName());
         });
         return Collections.unmodifiableMap(selectMap);
     }
@@ -140,28 +131,22 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
      */
     @Override
     public Map<String, String> findReportPeriodSelectMapForUser(
-            SiteUser siteUser, Integer minimumTransmissions)
-    {
+            SiteUser siteUser, Integer minimumTransmissions) {
         String userRole = siteUser.getPrimaryUserRole().getDescription();
 
         List<ReportingPeriodView> reportingPeriodViews;
 
-        if (userRole.equals("State"))
-        {
-            reportingPeriodViews = reportingPeriodRepository.findStaeUserReportingPeriodMap(minimumTransmissions,siteUser.getState().getId());
-        }
-        else if (userRole.equals("Regional"))
-        {
-            reportingPeriodViews = reportingPeriodRepository.findRegionUserReportingPeriodMap(minimumTransmissions,siteUser.getRegion().getId());
-        }
-        else
-        {
+        if (userRole.equals("State")) {
+            reportingPeriodViews = reportingPeriodRepository.findStaeUserReportingPeriodMap(minimumTransmissions, siteUser.getState().getId());
+        } else if (userRole.equals("Regional")) {
+            reportingPeriodViews = reportingPeriodRepository.findRegionUserReportingPeriodMap(minimumTransmissions, siteUser.getRegion().getId());
+        } else {
             reportingPeriodViews = reportingPeriodRepository.findDefaultUserReportingPeriodMap(minimumTransmissions);
         }
 
         final Map<String, String> selectMap = new LinkedHashMap<>();
         reportingPeriodViews.forEach(reportingPeriodView -> {
-            selectMap.put(String.valueOf(reportingPeriodView.getId()),reportingPeriodView.getName());
+            selectMap.put(String.valueOf(reportingPeriodView.getId()), reportingPeriodView.getName());
         });
 
         return Collections.unmodifiableMap(selectMap);
@@ -182,10 +167,27 @@ class ReportingPeriodDALServiceImpl implements ReportingPeriodDALService {
     public Optional<Long> findReportingPeriodIdByName(String reportingPeriodName) {
 
         ReportingPeriodView reportingPeriodView = reportingPeriodRepository.findReportingPeriodsByName(reportingPeriodName);
-        if(reportingPeriodView != null) {
+        if (reportingPeriodView != null) {
             return Optional.of(reportingPeriodView.getId());
         }
         return Optional.empty();
+    }
+
+    @Override
+    public Optional<ReportingPeriod> findCurrentReportingPeriod() {
+        Calendar targetDate = Calendar.getInstance();
+        targetDate.add(Calendar.DATE, -45);
+        return Optional.ofNullable(reportingPeriodRepository.findReportingPeriodForDate(targetDate));
+    }
+
+    @Override
+    public Optional<ReportingPeriod> currentReportingPeriodForState(long daysDifference) {
+        return reportingPeriodRepository.findReportingPeriodForState(45 + daysDifference);
+    }
+
+    @Override
+    public Optional<ReportingPeriod> currentCorrectedReportingPeriodForState(long daysDifference) {
+        return reportingPeriodRepository.findCurrentCorrectedReportingPeriodForState(45 + daysDifference);
     }
 
 

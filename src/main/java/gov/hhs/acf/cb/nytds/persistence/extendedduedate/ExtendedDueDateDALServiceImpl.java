@@ -15,24 +15,24 @@ import java.util.Optional;
 /**
  * Implements ExtendedDueDateService.
  * 
- * @see ExtendedDueDateService
+ * @see ExtendedDueDateDALService
  */
 @Transactional
 @Service
-public class ExtendedDueDateServiceImpl implements ExtendedDueDateService {
+class ExtendedDueDateDALServiceImpl implements ExtendedDueDateDALService {
 
     private ExtendedDueDateRepository extendedDueDateRepository;
     private StateDALService stateDALService;
     private ReportingPeriodDALService reportingPeriodDALService;
 
-    public ExtendedDueDateServiceImpl(ExtendedDueDateRepository extendedDueDateRepository, StateDALService stateDALService, ReportingPeriodDALService reportingPeriodDALService) {
+    public ExtendedDueDateDALServiceImpl(ExtendedDueDateRepository extendedDueDateRepository, StateDALService stateDALService, ReportingPeriodDALService reportingPeriodDALService) {
         this.extendedDueDateRepository = extendedDueDateRepository;
         this.stateDALService = stateDALService;
         this.reportingPeriodDALService = reportingPeriodDALService;
     }
 
     /**
-     * @see ExtendedDueDateService#getExtendedDueDateData(ExtendedDueDateSearch)
+     * @see ExtendedDueDateDALService#getExtendedDueDateData(ExtendedDueDateSearch)
      */
     @Override
     public List<VwExtendedDueDate> getExtendedDueDateData(ExtendedDueDateSearch search) {
@@ -40,7 +40,7 @@ public class ExtendedDueDateServiceImpl implements ExtendedDueDateService {
     }
 
     /**
-     * @see ExtendedDueDateService#getExtendedDueDateByDueDateID(Long, Long)
+     * @see ExtendedDueDateDALService#getExtendedDueDateByDueDateID(Long, Long)
      * @return
      */
     @Override
@@ -61,9 +61,14 @@ public class ExtendedDueDateServiceImpl implements ExtendedDueDateService {
         return "SUCCESS";
     }
 
+    @Override
+    public List<ExtendedDueDate> findByStateId(Long id) {
+        return extendedDueDateRepository.findExtendedDueDatesByState_id(id);
+    }
+
 
     /**
-     * @see ExtendedDueDateService#getReportPeriodNameById(Long)
+     * @see ExtendedDueDateDALService#getReportPeriodNameById(Long)
      * @return
      */
     @Override
@@ -72,7 +77,7 @@ public class ExtendedDueDateServiceImpl implements ExtendedDueDateService {
     }
     
     /**
-     * @see ExtendedDueDateService#getStateNameById(Long)
+     * @see ExtendedDueDateDALService#getStateNameById(Long)
      * @return
      */
     @Override
@@ -87,7 +92,7 @@ public class ExtendedDueDateServiceImpl implements ExtendedDueDateService {
     }
     
     /**
-     * @see ExtendedDueDateService#getAllStateIds()
+     * @see ExtendedDueDateDALService#getAllStateIds()
      */
     @Override
     public List<Long> getAllStateIds() {

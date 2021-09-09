@@ -3,6 +3,7 @@ package gov.hhs.acf.cb.nytds.persistence.siteuser;
 import gov.hhs.acf.cb.nytds.persistence.entity.SiteUser;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface SiteUserDALService {
     void deleteAll();
@@ -28,4 +29,6 @@ public interface SiteUserDALService {
     List<SiteUser> findAllByPrimaryRole(Long role);
 
     List<SiteUser> findByStateAndPrimaryRole(Long stateId, Long role);
+
+    Optional<SiteUserSmallView> findSiteUserByUserName(String userName);
 }

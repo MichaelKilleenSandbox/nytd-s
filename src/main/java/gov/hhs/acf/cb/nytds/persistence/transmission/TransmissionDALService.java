@@ -1,9 +1,8 @@
 package gov.hhs.acf.cb.nytds.persistence.transmission;
 
-import gov.hhs.acf.cb.nytds.persistence.entity.ReportingPeriod;
-import gov.hhs.acf.cb.nytds.persistence.entity.SiteUser;
-import gov.hhs.acf.cb.nytds.persistence.entity.State;
-import gov.hhs.acf.cb.nytds.persistence.entity.Transmission;
+import gov.hhs.acf.cb.nytds.persistence.entity.*;
+import gov.hhs.acf.cb.nytds.persistence.entity.helper.VwNote;
+import gov.hhs.acf.cb.nytds.persistence.entity.helper.VwTransmissionStatus;
 
 import java.util.List;
 import java.util.Map;
@@ -71,6 +70,8 @@ public interface TransmissionDALService {
      */
     void deleteAll();
 
+    void deleteTransmission(Transmission transmission);
+
     /**
      * Return transmission with highest id.
      * @return transmission with highest id
@@ -111,4 +112,10 @@ public interface TransmissionDALService {
      * @return Compliant or non-compliant
      */
     Optional<String> findComplianceStatus(Long transmissionId);
+
+    List<VwTransmissionStatus> findVwTransmissionStatus(TransmissionSearch search);
+
+    List<TransmissionRecord> findRecordNotes(TransmissionSearch search);
+
+    List<VwNote> findDatumNotes(TransmissionSearch search);
 }
